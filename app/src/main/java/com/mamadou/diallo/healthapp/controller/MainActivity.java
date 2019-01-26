@@ -1,7 +1,9 @@
-package com.mamadou.diallo.healthapp;
+package com.mamadou.diallo.healthapp.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.mamadou.diallo.healthapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
