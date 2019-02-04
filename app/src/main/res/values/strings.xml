@@ -3,8 +3,12 @@
     <string name="helloo">hello test !!</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="log_in">Log in</string>
+    <string name="login">Log in</string>
     <string name="register">Create Account</string>
     <string name="forgetpassword">Forget Password ?</string>
     <string name="email">Email</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="confirmepassword">Confirm Password</string>
+    <string name="signup">Sign Up</string>
 </resources>
