@@ -9,7 +9,7 @@
     <string name="email">Email</string>
     <string name="firstname">Prenom</string>
     <string name="lastname">Nom</string>
-    <string name="confirmepassword">Confirmer Mot de Passe</string>
+    <string name="confirmepassword">Confirmer</string>
     <string name="signup">S\'inscrire</string>
     <string name="login">Se connecter</string>
 </resources>
