@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
@@ -31,7 +32,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+  /*
+  test de connexion d'un nouvel user
+
+      Utilisateur user=null;
 
 
+    user= userbd.getUser("olive","olive");
+        if(user!=null)
+            Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),
+    Toast.LENGTH_LONG).show();
+        else
+                Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",
+    Toast.LENGTH_LONG).show();
 
+
+*/
 }
