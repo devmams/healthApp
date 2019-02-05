@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.SignupActivity" />
-        <activity android:name=".controller.SettingLanguageActivity"></activity>
+        <activity android:name=".controller.SettingLanguageActivity" />
+        <activity android:name=".controller.HomePageActivity"></activity>
     </application>
 
 </manifest>
