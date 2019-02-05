@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Utilisateur;
+import com.mamadou.diallo.healthapp.model.UtilisateurHelper;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -11,7 +13,17 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        UtilisateurHelper userbd = new UtilisateurHelper(this);
+
+        Utilisateur user1 = new Utilisateur(1,"DOVII", "Olive",72000, "olive", "",   "","","olive");
+
+
+        userbd.addUtilisateur(user1);
+
+
     }
+
 }
 
 

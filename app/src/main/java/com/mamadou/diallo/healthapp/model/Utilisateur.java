@@ -44,10 +44,10 @@ public class Utilisateur {
     }
 
 
-    public Utilisateur(int id,String nom, String adresseMail, String pass) {
+    public Utilisateur(int id,String nom,String prenom, String adresseMail, String pass) {
         this.id=id;
         this.nom=nom;
-        this.prenom="";
+        this.prenom=prenom;
         this.adresseMail=adresseMail;
         this.telephone="";
         this.numero_carte_vitale="";
@@ -56,7 +56,16 @@ public class Utilisateur {
         this.password =  pass;
     }
 
-
+    /**
+     *
+     * @param id
+     * @param nom
+     * @param prenom
+     * @param codePostal
+     * @param adresseMail
+     * @param password
+     * @param telephone
+     */
     public Utilisateur(int id, String nom, String prenom,int codePostal, String adresseMail, String password, String telephone ) {
         this.id=id;
         this.nom=nom;

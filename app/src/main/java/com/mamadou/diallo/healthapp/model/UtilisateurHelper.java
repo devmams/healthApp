@@ -59,7 +59,7 @@ public class UtilisateurHelper extends SQLiteOpenHelper {
      *
      * @param utilisateur
      */
-    void addUtilisateur(Utilisateur utilisateur){
+    public void addUtilisateur(Utilisateur utilisateur){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues content = new ContentValues();
@@ -77,7 +77,7 @@ public class UtilisateurHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    Utilisateur getUser(String addresse, String pass){
+    public Utilisateur getUser(String addresse, String pass){
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{ KEY_ID, KEY_NOM, KEY_PRENOM, KEY_CODE_POSTAL,KEY_ADRESSE_MAIL, KEY_TELEPHONE,KEY_CARTE_VITALE},  KEY_ADRESSE_MAIL +" =? AND "+KEY_PASSWORD+" =?" ,new String[]{String.valueOf(addresse),pass},null,null,null,null);
