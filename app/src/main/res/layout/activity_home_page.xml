@@ -21,7 +21,8 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/makeanappointment"/>
+        android:text="@string/makeanappointment"
+        android:id="@+id/activity_home_page_make_an_appointment_btn"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -29,7 +30,8 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/myappointments"/>
+        android:text="@string/myappointments"
+        android:id="@+id/activity_home_page_my_appointments_btn"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/about"/>
+        android:text="@string/about"
+        android:id="@+id/activity_home_page_about_btn"/>
 
 
 </LinearLayout>
