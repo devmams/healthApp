@@ -41,7 +41,8 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/login"/>
+        android:text="@string/login"
+        android:id="@+id/activity_login_true_btn"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -15,4 +15,7 @@
     <string name="english" translatable="false">English</string>
     <string name="save">Save</string>
     <string name="francais" translatable="false">Francais</string>
+    <string name="makeanappointment">Make an appointment</string>
+    <string name="myappointments">My appointments</string>
+    <string name="about">About</string>
 </resources>

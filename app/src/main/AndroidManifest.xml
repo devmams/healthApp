@@ -19,7 +19,8 @@
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.SignupActivity" />
         <activity android:name=".controller.SettingLanguageActivity" />
-        <activity android:name=".controller.HomePageActivity"></activity>
+        <activity android:name=".controller.HomePageActivity" />
+        <activity android:name=".controller.MakeAnAppointment"></activity>
     </application>
 
 </manifest>
