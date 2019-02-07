@@ -2,8 +2,10 @@ package com.mamadou.diallo.healthapp.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 import com.mamadou.diallo.healthapp.model.Utilisateur;
@@ -16,6 +18,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText mEmailTxt;
     private EditText mPasswordTxt;
     private EditText mConfirmPasswordTxt;
+    private Button mSignupBtn;
     private Utilisateur user;
 
     @Override
@@ -26,14 +29,20 @@ public class SignupActivity extends AppCompatActivity {
         mFirstNameTxt = (EditText) findViewById(R.id.activity_signup_first_name_txt);
         mLastNameTxt = (EditText) findViewById(R.id.activity_signup_last_name_txt);
         mEmailTxt = (EditText) findViewById(R.id.activity_signup_email_txt);
-        mPasswordTxt = (EditText) findViewById(R.id.activity_login_password_txt);
+        mPasswordTxt = (EditText) findViewById(R.id.activity_signup_password_txt);
         mConfirmPasswordTxt = (EditText) findViewById(R.id.activity_login_password_txt);
+        mSignupBtn = (Button) findViewById(R.id.activity_signup_signup_btn);
 
-
-        UtilisateurHelper userbd = new UtilisateurHelper(this);
-
-        user = new Utilisateur(1,mLastNameTxt.toString(), mFirstNameTxt.toString(), mEmailTxt.toString(), mPasswordTxt.toString());
-        userbd.addUtilisateur(user);
+        mSignupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user = null;
+                UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
+                user = new Utilisateur(1,mLastNameTxt.getText().toString(), mFirstNameTxt.getText().toString(), mEmailTxt.getText().toString(), mPasswordTxt.getText().toString());
+                userbd.addUtilisateur(user);
+                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 }

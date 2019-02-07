@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 user = null;
                 UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
-                user= userbd.getUser("mEmailTxt","mPasswordTxt");
+                user= userbd.getUser(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
 
                 if(user!=null)
                     Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),
