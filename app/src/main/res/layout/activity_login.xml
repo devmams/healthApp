@@ -23,7 +23,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_email_24dp"
-        android:hint="@string/email"/>
+        android:hint="@string/email"
+        android:id="@+id/activity_login_email_txt"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +34,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_lock_outline_24dp"
-        android:hint="@string/password"/>
+        android:hint="@string/password"
+        android:id="@+id/activity_login_password_txt"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -42,7 +44,7 @@
         android:ems="10"
         android:background="@drawable/rounded_border_button"
         android:text="@string/login"
-        android:id="@+id/activity_login_true_btn"/>
+        android:id="@+id/activity_login_login_btn"/>
 
     <TextView
         android:layout_width="wrap_content"

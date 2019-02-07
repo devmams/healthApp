@@ -23,7 +23,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_person_24dp"
-        android:hint="@string/firstname"/>
+        android:hint="@string/firstname"
+        android:id="@+id/activity_signup_first_name_txt"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +34,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_person_24dp"
-        android:hint="@string/lastname"/>
+        android:hint="@string/lastname"
+        android:id="@+id/activity_signup_last_name_txt"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -43,7 +45,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_email_24dp"
-        android:hint="@string/email"/>
+        android:hint="@string/email"
+        android:id="@+id/activity_signup_email_txt"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -53,7 +56,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_lock_outline_24dp"
-        android:hint="@string/password"/>
+        android:hint="@string/password"
+        android:id="@+id/activity_signup_password_txt"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -63,7 +67,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_edittext"
         android:drawableLeft="@drawable/ic_lock_outline_24dp"
-        android:hint="@string/confirmepassword"/>
+        android:hint="@string/confirmepassword"
+        android:id="@+id/activity_signup_confirm_password_txt"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -71,6 +76,8 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/signup"/>
+        android:text="@string/signup"
+        android:id="@+id/activity_signup_signup_btn"/>
+    />
 
 </LinearLayout>
