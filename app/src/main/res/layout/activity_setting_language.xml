@@ -9,6 +9,13 @@
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logo_health_app"/>
+
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +26,7 @@
             android:id="@+id/radio_francais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:onClick="onRadioButtonClicked"
             android:text="@string/francais"
@@ -41,6 +48,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/save"/>
+        android:text="@string/save"
+        android:textColor="@color/colorWhite"/>
 
 </LinearLayout>
