@@ -39,18 +39,18 @@ public class LoginActivity extends AppCompatActivity {
                 UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
                 user= userbd.getUser(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
 
-                if(user!=null)
-                    Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),
-                            Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",
-                            Toast.LENGTH_LONG).show();
+//                if(user!=null) {
+//                    Toast.makeText(getApplicationContext(), "Bonjour Monsieur " + user.getNom() + " " + user.getPrenom(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(intent);
+//                }
+//                else {
+//                    Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",Toast.LENGTH_LONG).show();
+//                }
 
 
 
 
-//                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
-//                startActivity(intent);
             }
         });
 

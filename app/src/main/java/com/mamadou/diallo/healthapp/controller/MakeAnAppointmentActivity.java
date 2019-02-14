@@ -19,9 +19,13 @@ public class MakeAnAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_make_an_appointment);
 
         calendar = Calendar.getInstance();
-        int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         simpleCalendarView = (CalendarView) findViewById(R.id.activity_make_an_appointment_calendar_btn); // get the reference of CalendarView
-        simpleCalendarView.setMaxDate(daysInMonth);
 
+        Long min = calendar.getTime().getTime();
+        simpleCalendarView.setMinDate(min);
+
+        calendar.add(Calendar.MONTH, 2);
+        Long max = calendar.getTime().getTime();
+        simpleCalendarView.setMaxDate(max);
     }
 }

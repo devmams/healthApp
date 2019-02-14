@@ -1,5 +1,6 @@
 package com.mamadou.diallo.healthapp.controller;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +41,11 @@ public class SignupActivity extends AppCompatActivity {
                 UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
                 user = new Utilisateur(1,mLastNameTxt.getText().toString(), mFirstNameTxt.getText().toString(), mEmailTxt.getText().toString(), mPasswordTxt.getText().toString());
                 userbd.addUtilisateur(user);
-                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
+                if(user != null){
+                    Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(intent);
+                }
+//                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
             }
         });
 
