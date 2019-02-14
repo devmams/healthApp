@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Specialite;
 import com.mamadou.diallo.healthapp.model.Utilisateur;
 import com.mamadou.diallo.healthapp.model.UtilisateurHelper;
 
@@ -35,21 +36,21 @@ public class LoginActivity extends AppCompatActivity {
         mLogInLogInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = null;
-                UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
-                user= userbd.getUser(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
+               // user = null;
+                user=new Utilisateur(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
+                if(user.login(getApplicationContext())!=null){
 
-//                if(user!=null) {
-//                    Toast.makeText(getApplicationContext(), "Bonjour Monsieur " + user.getNom() + " " + user.getPrenom(), Toast.LENGTH_LONG).show();
+                    Specialite sepecialite = new Specialite("Medecine generale");
+                    sepecialite.addSpecialite(getApplicationContext());
+                    for(Specialite sepe:sepecialite.getAll(getApplicationContext())){
+                        Toast.makeText(getApplicationContext(), " Specialite "+sepe,Toast.LENGTH_LONG).show();
+                    }
                     Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+
                     startActivity(intent);
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",Toast.LENGTH_LONG).show();
-//                }
-
-
-
+                }else{
+                    Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -58,20 +59,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-  /*
-  test de connexion d'un nouvel user
-
-      Utilisateur user=null;
-
-
-    user= userbd.getUser("olive","olive");
-        if(user!=null)
-            Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),
-    Toast.LENGTH_LONG).show();
-        else
-                Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",
-    Toast.LENGTH_LONG).show();
-
-
-*/
 }

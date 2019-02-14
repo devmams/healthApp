@@ -1,85 +1,74 @@
 package com.mamadou.diallo.healthapp.model;
 
-public class Utilisateur {
+import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 
+import com.mamadou.diallo.healthapp.controller.LoginActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+public class Utilisateur extends AppCompatActivity {
+
+   // private UtilisateurHelper userHelper= new UtilisateurHelper();
     int id;
-
     String nom;
-
     String prenom;
-
-    int codePostal;
-
     String adresseMail;
-
-    String telephone;
-
-    String numero_carte_vitale;
-
-    String adressePostal;
-
     String password;
 
-    public Utilisateur(int id,String nom, String prenom,  int codePostal, String adresseMail, String telephone,   String numero_carte_vitale,String adressePostal,String password ) {
-        this.id=id;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.codePostal=  codePostal;
-        this.adresseMail=adresseMail;
-        this.telephone=telephone;
-        this.numero_carte_vitale=numero_carte_vitale;
-        this.adressePostal=adressePostal;
-        this.password =  password;
-    }
 
-    public Utilisateur(int id,String nom, String prenom, int codePostal, String adresseMail, String telephone,   String numero_carte_vitale,String adressePostal) {
-        this.id=id;
+
+    public Utilisateur(String nom,String prenom, String adresseMail, String pass) {
         this.nom=nom;
         this.prenom=prenom;
         this.adresseMail=adresseMail;
-        this.telephone=telephone;
-        this.numero_carte_vitale=numero_carte_vitale;
-        this.adressePostal=adressePostal;
-        this.codePostal=  codePostal;
-    }
-
-
-    public Utilisateur(int id,String nom,String prenom, String adresseMail, String pass) {
-        this.id=id;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.adresseMail=adresseMail;
-        this.telephone="";
-        this.numero_carte_vitale="";
-        this.adressePostal="";
-        this.codePostal=  0;
         this.password =  pass;
+    }
+
+    public Utilisateur(String adresseMail, String password) {
+        this.adresseMail = adresseMail;
+        this.password = password;
     }
 
     /**
      *
-     * @param id
-     * @param nom
-     * @param prenom
-     * @param codePostal
-     * @param adresseMail
-     * @param password
-     * @param telephone
+     * @return la liste de tous les  utilisateurs
      */
-    public Utilisateur(int id, String nom, String prenom,int codePostal, String adresseMail, String password, String telephone ) {
-        this.id=id;
-        this.nom=nom;
-        this.prenom=prenom;
-        this.codePostal=  codePostal;
-        this.adresseMail=adresseMail;
-        this.telephone=telephone;
-        this.password =  password;
+    public List<Utilisateur>getAllUser(Context context){
+        UtilisateurHelper userHelper= new UtilisateurHelper(context);
+        return  userHelper.getAllUser();
+    }
+
+    /**
+     * permet de connecter l'utilisateur
+     * @return
+     */
+    public Utilisateur login(Context context){
+        UtilisateurHelper userHelper= new UtilisateurHelper(context);
+        return userHelper.getUser(this.getAdresseMail(),this.getPassword());
+    }
+
+    /**
+     * permet d'ajouter un nouvel utilisateur
+     * @return
+     */
+    public boolean add(Context context){
+        UtilisateurHelper userHelper= new UtilisateurHelper(context);
+        return userHelper.addUtilisateur(this);
+    }
+
+    /**
+     * permet de modifier un utilisateur
+     * @return
+     */
+    public boolean update(Context context){
+        UtilisateurHelper userHelper= new UtilisateurHelper(context);
+        return userHelper.updateUtilisateur(this);
     }
 
     public int getId() {
         return id;
     }
-
     public String getNom() {
         return nom;
     }
@@ -87,28 +76,13 @@ public class Utilisateur {
     public String getPrenom() {
         return prenom;
     }
-
-    public int getCodePostal() {
-        return codePostal;
-    }
-
     public String getAdresseMail() {
         return adresseMail;
-    }
-
-    public String getNumero_carte_vitale() {
-        return numero_carte_vitale;
-    }
-
-    public String getAdressePostal() {
-        return adressePostal;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
+
 }

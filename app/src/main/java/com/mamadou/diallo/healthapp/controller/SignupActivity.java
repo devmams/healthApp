@@ -37,10 +37,15 @@ public class SignupActivity extends AppCompatActivity {
         mSignupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = null;
-                UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
-                user = new Utilisateur(1,mLastNameTxt.getText().toString(), mFirstNameTxt.getText().toString(), mEmailTxt.getText().toString(), mPasswordTxt.getText().toString());
-                userbd.addUtilisateur(user);
+
+                //UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
+                user = new Utilisateur(mLastNameTxt.getText().toString(), mFirstNameTxt.getText().toString(), mEmailTxt.getText().toString(), mPasswordTxt.getText().toString());
+                if(user.add(getApplicationContext())){
+                    Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Désolé ",Toast.LENGTH_LONG).show();
+                }
+                //userbd.addUtilisateur(user);
                 if(user != null){
                     Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
                     startActivity(intent);
