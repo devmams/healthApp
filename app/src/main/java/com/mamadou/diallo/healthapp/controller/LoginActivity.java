@@ -40,11 +40,12 @@ public class LoginActivity extends AppCompatActivity {
                 user=new Utilisateur(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
                 if(user.login(getApplicationContext())!=null){
 
-                    Specialite sepecialite = new Specialite("Medecine generale");
+                    /*Specialite sepecialite = new Specialite("Medecine generale");
                     sepecialite.addSpecialite(getApplicationContext());
                     for(Specialite sepe:sepecialite.getAll(getApplicationContext())){
                         Toast.makeText(getApplicationContext(), " Specialite "+sepe,Toast.LENGTH_LONG).show();
                     }
+                    */
                     Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
 
                     startActivity(intent);
