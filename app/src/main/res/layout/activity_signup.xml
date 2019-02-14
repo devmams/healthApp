@@ -13,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="127dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/logo_health_app"
-        android:layout_marginBottom="10dp"/>
+        android:src="@drawable/logo"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,7 +77,6 @@
         android:ems="10"
         android:background="@drawable/rounded_border_button"
         android:text="@string/signup"
-        android:textColor="@color/colorWhite"
         android:id="@+id/activity_signup_signup_btn"/>
     />
 

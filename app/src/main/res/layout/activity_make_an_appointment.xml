@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="127dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/logo_health_app"/>
+        android:src="@drawable/logo"/>
 
     <CalendarView
         android:id="@+id/activity_make_an_appointment_calendar_btn"
