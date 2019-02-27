@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".controller.HomePageActivity"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@drawable/backg">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -22,7 +23,9 @@
         android:ems="15"
         android:background="@drawable/rounded_border_button"
         android:text="@string/makeanappointment"
-        android:id="@+id/activity_home_page_make_an_appointment_btn"/>
+        android:textColor="@color/white"
+        android:id="@+id/activity_home_page_make_an_appointment_btn"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,6 +34,7 @@
         android:ems="15"
         android:background="@drawable/rounded_border_button"
         android:text="@string/myappointments"
+        android:textColor="@color/white"
         android:id="@+id/activity_home_page_my_appointments_btn"/>
 
     <Button
@@ -40,6 +44,7 @@
         android:ems="15"
         android:background="@drawable/rounded_border_button"
         android:text="@string/about"
+        android:textColor="@color/white"
         android:id="@+id/activity_home_page_about_btn"/>
 
 
