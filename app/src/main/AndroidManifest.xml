@@ -20,7 +20,7 @@
         <activity android:name=".controller.SignupActivity" />
         <activity android:name=".controller.SettingLanguageActivity" />
         <activity android:name=".controller.HomePageActivity" />
-        <activity android:name=".controller.MakeAnAppointmentActivity"></activity>
+        <activity android:name=".controller.Disponibility"></activity>
     </application>
 
 </manifest>

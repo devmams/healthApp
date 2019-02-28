@@ -3,13 +3,12 @@ package com.mamadou.diallo.healthapp.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
-import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
 import java.util.Calendar;
 
-public class MakeAnAppointmentActivity extends AppCompatActivity {
+public class Disponibility extends AppCompatActivity {
 
     private CalendarView simpleCalendarView;
     Calendar calendar;
@@ -17,7 +16,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_an_appointment);
+        setContentView(R.layout.activity_disponibility);
 
         calendar = Calendar.getInstance();
         simpleCalendarView = (CalendarView) findViewById(R.id.activity_make_an_appointment_calendar_btn); // get the reference of CalendarView
