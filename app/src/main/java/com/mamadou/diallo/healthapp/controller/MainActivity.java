@@ -48,11 +48,6 @@ public class MainActivity extends AppCompatActivity {
         recreate();
     }
 
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        setContentView(R.layout.activity_main);
-//    }
 
     private void language_setting(){
         Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);
