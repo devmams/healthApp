@@ -25,7 +25,7 @@
         <item>Neurologie</item>
     </string-array>
 
-    <string name="name_doctor_prompt">Nom du medecin</string>
+    <!--<string name="name_doctor_prompt">Nom du medecin</string>-->
     <string-array name="name_doctor_arrays">
         <item>Nom du medecin</item>
     </string-array>
