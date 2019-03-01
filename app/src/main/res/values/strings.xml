@@ -18,4 +18,20 @@
     <string name="makeanappointment">Make an appointment</string>
     <string name="myappointments">My appointments</string>
     <string name="about">About</string>
+
+
+    <string name="speciality_prompt">Choose Speciality</string>
+    <string-array name="speciality_arrays">
+        <item>Choose Speciality</item>
+        <item>Ophthalmology</item>
+        <item>Dermatology</item>
+        <item>Cardiology</item>
+        <item>Neurology</item>
+    </string-array>
+
+    <string name="name_doctor_prompt">Name of doctor</string>
+    <string-array name="name_doctor_arrays">
+        <item>Name of doctor</item>
+    </string-array>
+
 </resources>

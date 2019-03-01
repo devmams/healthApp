@@ -8,8 +8,7 @@
     tools:context=".controller.SignupActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/backg"
-    >
+    android:background="@drawable/backg">
 
     <ImageView
         android:layout_width="wrap_content"
