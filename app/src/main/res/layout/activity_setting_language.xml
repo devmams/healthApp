@@ -50,6 +50,8 @@
         android:ems="10"
         android:background="@drawable/rounded_border_button"
         android:text="@string/save"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:id="@+id/activity_setting_language_validation_btn"/>
+
 
 </LinearLayout>

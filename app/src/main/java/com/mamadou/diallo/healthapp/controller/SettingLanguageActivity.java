@@ -1,22 +1,48 @@
 package com.mamadou.diallo.healthapp.controller;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.mamadou.diallo.healthapp.R;
 
+import java.util.Locale;
+
 public class SettingLanguageActivity extends AppCompatActivity {
+
+    private Button mValidateBtn;
+    private String languageCode = "fr"; //français par defaut
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_language);
+
+        mValidateBtn = (Button) findViewById(R.id.activity_setting_language_validation_btn);
+
+
+            mValidateBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String languageToLoad = languageCode;
+                    Locale locale = new Locale(languageToLoad);
+                    Locale.setDefault(locale);
+                    Configuration config = new Configuration();
+                    config.locale = locale;
+                    getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                    finish();
+                }
+            });
     }
+
+
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -25,15 +51,19 @@ public class SettingLanguageActivity extends AppCompatActivity {
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radio_francais:
-                if (checked)
+                if (checked){
+                    languageCode = "fr";
                     break;
+                }
             case R.id.radio_english:
-                if (checked)
+                if (checked){
+                    languageCode = "en";
                     break;
-
+                }
         }
 
     }
+
 
     private void language_setting(){
         Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);

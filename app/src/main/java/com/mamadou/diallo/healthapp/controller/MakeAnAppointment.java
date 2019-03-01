@@ -12,7 +12,11 @@ public class MakeAnAppointment extends AppCompatActivity {
 
 
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+        recreate();
+    }
 
 
     private void language_setting(){

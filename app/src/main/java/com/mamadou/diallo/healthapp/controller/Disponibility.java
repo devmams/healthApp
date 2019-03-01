@@ -35,6 +35,12 @@ public class Disponibility extends AppCompatActivity {
         simpleCalendarView.setMaxDate(max);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+        recreate();
+    }
+
     private void language_setting(){
         Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);
         startActivity(intent);
