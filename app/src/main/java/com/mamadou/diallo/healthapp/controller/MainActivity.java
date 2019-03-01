@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private void language_setting(){
         Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);
         startActivity(intent);
