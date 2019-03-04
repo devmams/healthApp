@@ -1,21 +1,28 @@
 package com.mamadou.diallo.healthapp.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Disponibility extends AppCompatActivity {
 
     private CalendarView simpleCalendarView;
     Calendar calendar;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,17 @@ public class Disponibility extends AppCompatActivity {
         calendar.add(Calendar.DAY_OF_MONTH, today);
         Long max = calendar.getTime().getTime();
         simpleCalendarView.setMaxDate(max);
+
+        Long date = simpleCalendarView.getDate();
+        simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(view.getContext(), "Year=" + year + " Month=" + month + " Day=" + dayOfMonth, Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(getApplicationContext(),ChoisirCreneaux.class);
+//                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
