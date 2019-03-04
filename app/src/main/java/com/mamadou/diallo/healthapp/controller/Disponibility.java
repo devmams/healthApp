@@ -2,20 +2,16 @@ package com.mamadou.diallo.healthapp.controller;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.CalendarView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Disponibility extends AppCompatActivity {
 
@@ -44,9 +40,15 @@ public class Disponibility extends AppCompatActivity {
         Long date = simpleCalendarView.getDate();
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(view.getContext(), "Year=" + year + " Month=" + month + " Day=" + dayOfMonth, Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(getApplicationContext(),ChoisirCreneaux.class);
-//                startActivity(intent);
+//                Toast.makeText(view.getContext(), "Year=" + year + " Month=" + month + " Day=" + dayOfMonth, Toast.LENGTH_LONG).show();
+                int strYear = year;
+                int strMonth = month;
+                int strDay = dayOfMonth;
+                Intent intent = new Intent(getApplicationContext(),ChoisirCreneau.class);
+                intent.putExtra("yearValue", strYear);
+                intent.putExtra("monthValue", strMonth);
+                intent.putExtra("dayValue", strDay);
+                startActivity(intent);
             }
         });
 
