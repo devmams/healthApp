@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
-import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
 import java.util.Calendar;
 
-public class Disponibility extends AppCompatActivity {
+public class DisponibilityActivity extends AppCompatActivity {
 
     private CalendarView simpleCalendarView;
     Calendar calendar;
@@ -43,7 +42,7 @@ public class Disponibility extends AppCompatActivity {
                 int strYear = year;
                 int strMonth = month;
                 int strDay = dayOfMonth;
-                Intent intent = new Intent(getApplicationContext(),ChoisirCreneau.class);
+                Intent intent = new Intent(getApplicationContext(), ChoisirCreneauActivity.class);
                 intent.putExtra("yearValue", strYear);
                 intent.putExtra("monthValue", strMonth);
                 intent.putExtra("dayValue", strDay);

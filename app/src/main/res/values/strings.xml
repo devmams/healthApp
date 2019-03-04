@@ -18,6 +18,8 @@
     <string name="makeanappointment">Make an appointment</string>
     <string name="myappointments">My appointments</string>
     <string name="about">About</string>
+    <string name="available">Available</string>
+    <string name="notavailable">Not Available</string>
 
 
     <string name="speciality_prompt">Choose Speciality</string>

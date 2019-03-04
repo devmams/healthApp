@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.ChoisirCreneau"
+    tools:context=".controller.ChoisirCreneauActivity"
     android:gravity="center_horizontal"
     android:background="@drawable/backg">
 
@@ -102,7 +102,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="30dp"
-            android:text="Pas Disponipbe"/>
+            android:text="@string/notavailable"/>
 
         <Button
             android:layout_width="30dp"
@@ -116,7 +116,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="180dp"
-            android:text="Disponipbe"/>
+            android:text="@string/available"/>
 
     </RelativeLayout>
 

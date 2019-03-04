@@ -17,6 +17,8 @@
     <string name="makeanappointment">Prendre Rendez-vous</string>
     <string name="myappointments">Mes Rendez-vous</string>
     <string name="about">Apropos</string>
+    <string name="available">Disponible</string>
+    <string name="notavailable">Pas Disponible</string>
 
     <string name="speciality_prompt">Choisis une Spécialité</string>
     <string-array name="speciality_arrays">

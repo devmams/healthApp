@@ -3,36 +3,34 @@ package com.mamadou.diallo.healthapp.controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
-public class HomePageActivity extends AppCompatActivity {
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    private Button mMakeAnAppointment;
-
+public class ValidationRDVActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_validation_rdv);
+        Long date = getIntent().getExtras().getLong("dateValue");
 
-        mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
 
-        mMakeAnAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String strDate = dateFormat.format(date);
+        Toast.makeText(getApplicationContext(), strDate, Toast.LENGTH_LONG).show();
 
 
     }
+
 
     @Override
     protected void onRestart() {
