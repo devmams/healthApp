@@ -1,9 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ChoisirCreneau">
+    android:orientation="vertical"
+    tools:context=".controller.ChoisirCreneau"
+    android:gravity="center_horizontal"
+    android:background="@drawable/backg">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo_health_app"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="09:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_09"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="10:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_10"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="11:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_11"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="14:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_14"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="15:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_15"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="16:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_16"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:text="17:00"
+        android:textColor="@color/white"
+        android:id="@+id/activity_choisir_creneau_17"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp">
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_stop_rouge_24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="30dp"
+            android:text="Pas Disponipbe"/>
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/ic_stop_vert_24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="180dp"
+            android:text="Disponipbe"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

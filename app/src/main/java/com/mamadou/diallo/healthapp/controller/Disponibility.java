@@ -40,7 +40,6 @@ public class Disponibility extends AppCompatActivity {
         Long date = simpleCalendarView.getDate();
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-//                Toast.makeText(view.getContext(), "Year=" + year + " Month=" + month + " Day=" + dayOfMonth, Toast.LENGTH_LONG).show();
                 int strYear = year;
                 int strMonth = month;
                 int strDay = dayOfMonth;
