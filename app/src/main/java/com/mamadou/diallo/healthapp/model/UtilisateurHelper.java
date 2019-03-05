@@ -74,6 +74,20 @@ public class UtilisateurHelper extends SQLiteOpenHelper {
         Utilisateur utilisateur=null;
         if(cursor.getCount()>0){
             cursor.moveToFirst();
+            utilisateur = new Utilisateur(cursor.getInt(0),cursor.getString(1),cursor.getString(2));
+
+        }
+
+        return utilisateur;
+    }
+
+    Utilisateur getUser(int idUser){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{ KEY_ID, KEY_NOM, KEY_PRENOM,KEY_ADRESSE_MAIL},  KEY_ID,new String[]{""+idUser},null,null,null,null);
+        Utilisateur utilisateur=null;
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
             utilisateur=  new Utilisateur(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(3)) ;
 
         }

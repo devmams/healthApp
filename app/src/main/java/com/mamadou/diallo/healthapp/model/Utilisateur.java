@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class Utilisateur extends AppCompatActivity {
 
-   // private UtilisateurHelper userHelper= new UtilisateurHelper();
+    // private UtilisateurHelper userHelper= new UtilisateurHelper();
     int id;
     String nom;
     String prenom;
@@ -25,9 +25,23 @@ public class Utilisateur extends AppCompatActivity {
         this.password =  pass;
     }
 
+
+
     public Utilisateur(String adresseMail, String password) {
         this.adresseMail = adresseMail;
         this.password = password;
+    }
+
+
+    public Utilisateur(int id, String nom, String prenom) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+
+    public Utilisateur(int id) {
+        this.id = id;
     }
 
     /**
@@ -65,6 +79,8 @@ public class Utilisateur extends AppCompatActivity {
         UtilisateurHelper userHelper= new UtilisateurHelper(context);
         return userHelper.updateUtilisateur(this);
     }
+
+
 
     public int getId() {
         return id;

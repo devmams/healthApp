@@ -25,7 +25,7 @@ public class SpecialiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_SPECIALITE="CREATE TABLE "+TABLE_NAME+" ("
-                + KEY_ID +" INTEGER PRIMARY KE AUTOINCREMENT,"
+                + KEY_ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_LIBELLE +" TEXT ) ";
         db.execSQL(CREATE_TABLE_SPECIALITE);
     }
@@ -83,12 +83,14 @@ public class SpecialiteHelper extends SQLiteOpenHelper {
         content.put(KEY_ID,0 );
         content.put(KEY_LIBELLE,specialite.getLibelleSpecialite() );
 
-        return db.update(TABLE_NAME , content , KEY_ID +" =? ",new String[]{String.valueOf(specialite.getIdSpecialite())});
+        // return db.update(TABLE_NAME , content , KEY_ID +" =? ",new String[]{String.valueOf(specialite.getIdSpecialite())});
+        return 1;
     }
 
     public void delete(Specialite specialite){
         SQLiteDatabase db = this.getReadableDatabase();
-        db.delete(TABLE_NAME,KEY_ID+"= ?",new String[]{String.valueOf(specialite.getIdSpecialite())});
+        // db.delete(TABLE_NAME,KEY_ID+"= ?",new String[]{String.valueOf(specialite.getIdSpecialite())});
+
         db.close();;
 
     }

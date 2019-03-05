@@ -4,7 +4,7 @@ public class Connexion {
 
 
 
-    private  int version = 6;
+    private  int version = 7;
 
     private  String databaseName = "rendezVous";
 

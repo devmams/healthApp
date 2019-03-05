@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Disponibilite;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -29,6 +31,11 @@ public class ValidationRDVActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), strDate, Toast.LENGTH_LONG).show();
 
 
+
+        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
+
+        for(Disponibilite disponibilite :disponibiliteHelper.getMedecinDisponibilite(1)) // pour avoir la liste des disponibilité du medecin
+            Toast.makeText(getApplicationContext(), ""+disponibilite.getMedecin().getNomMedecin(),Toast.LENGTH_LONG).show();
     }
 
 
@@ -47,6 +54,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //ajoute les entrées de menu_test à l'ActionBar
         getMenuInflater().inflate(R.menu.menu_app, menu);
+
         return true;
     }
 
@@ -59,4 +67,21 @@ public class ValidationRDVActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
+
+    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
+    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
+    //disponibiliteHelper.ajouterDisponibilite(new Date(),3);
+
+    //disponibiliteHelper.prendreRendezVous(1,1); ici le second parametre correspond à l'identifiant de l'utilisateur connecté
+
+    // Toast.makeText(getApplicationContext(), ""+disponibiliteHelper.getAllDisponibilite().get(0).getUtilisateur().getId(),Toast.LENGTH_LONG).show();
+
+
+    //for(Disponibilite disponibilite :disponibiliteHelper.getNextUserDisponibilite(1)) pour avoir la liste des prochains rdv de l'utilisateur
+
+
+    // for(Disponibilite disponibilite :disponibiliteHelper.getPreviousUserDisponibilite(1)) pour avoir la liste des precedent rdv de l'utilisateur
+
 }
