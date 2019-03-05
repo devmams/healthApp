@@ -33,4 +33,5 @@
     <string-array name="name_doctor_arrays">
         <item>Nom du medecin</item>
     </string-array>
+    <string name="itineraire">Itinéraire</string>
 </resources>

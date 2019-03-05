@@ -43,6 +43,16 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:background="@drawable/rounded_border_button"
+        android:text="@string/itineraire"
+        android:textColor="@color/white"
+        android:id="@+id/activity_home_page_itineraire_btn"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:background="@drawable/rounded_border_button"
         android:text="@string/about"
         android:textColor="@color/white"
         android:id="@+id/activity_home_page_about_btn"/>

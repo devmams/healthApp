@@ -20,6 +20,7 @@
     <string name="about">About</string>
     <string name="available">Available</string>
     <string name="notavailable">Not Available</string>
+    <string name="itineraire">Itinerary</string>
 
 
     <string name="speciality_prompt">Choose Speciality</string>
