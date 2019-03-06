@@ -35,4 +35,8 @@
     </string-array>
     <string name="itineraire">Itinéraire</string>
     <string name="confirmrdv">Confirmer rendez-vous</string>
+    <string name="doctor">Médecin</string>
+    <string name="speciality">Spécialité</string>
+    <string name="reason">Motif</string>
+    <string name="date">Date</string>
 </resources>
