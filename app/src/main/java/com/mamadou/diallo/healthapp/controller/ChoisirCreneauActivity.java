@@ -12,11 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Disponibilite;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -44,51 +47,84 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         mButton15 = (Button) findViewById(R.id.activity_choisir_creneau_15);
         mButton16 = (Button) findViewById(R.id.activity_choisir_creneau_16);
         mButton17 = (Button) findViewById(R.id.activity_choisir_creneau_17);
-
+        int  idBouton;
 
         final int year = getIntent().getExtras().getInt("yearValue");
         final int month = (getIntent().getExtras().getInt("monthValue")+1);
         final int day = getIntent().getExtras().getInt("dayValue");
 
-        if(false){
+        Calendar cal = Calendar.getInstance();
+        cal.set(year,month,day,9,00);
+        Date date9 = cal.getTime();
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String strDate = dateFormat.format(date9);
+
+        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
+
+        //disponibiliteHelper.ajouterDisponibilite(date9,1);
+        List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(1);
+
+        cal.set(year,month,day,9,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton09.setBackgroundResource(R.drawable.red_button);
-            mButton09.setEnabled(false);
+            mButton09.setEnabled(true);
+
+        }else{
+            mButton09.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(true){
+        cal.set(year,month,day,10,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton10.setBackgroundResource(R.drawable.red_button);
             mButton10.setEnabled(false);
+        }else{
+            mButton10.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(false){
+        cal.set(year,month,day,11,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton11.setBackgroundResource(R.drawable.red_button);
             mButton11.setEnabled(false);
+        }else{
+            mButton11.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(false){
+        cal.set(year,month,day,14,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton14.setBackgroundResource(R.drawable.red_button);
             mButton14.setEnabled(false);
+        }else{
+            mButton14.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(false){
+        cal.set(year,month,day,15,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton15.setBackgroundResource(R.drawable.red_button);
             mButton15.setEnabled(false);
+        }else{
+            mButton15.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(true){
+        cal.set(year,month,day,16,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton16.setBackgroundResource(R.drawable.red_button);
             mButton16.setEnabled(false);
+        }else{
+            mButton16.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
-        if(false){
+        cal.set(year,month,day,17,00);
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton17.setBackgroundResource(R.drawable.red_button);
             mButton17.setEnabled(false);
+        }else{
+            mButton17.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
 
 
         mButton09.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,9,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton09.getId());
             }
         });
 
@@ -97,10 +133,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,10,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton10.getId());
             }
         });
 
@@ -109,10 +143,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,11,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton11.getId());
             }
         });
 
@@ -121,10 +153,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,14,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton14.getId());
             }
         });
 
@@ -133,10 +163,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,15,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton15.getId());
             }
         });
 
@@ -145,10 +173,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,16,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton16.getId());
             }
         });
 
@@ -157,14 +183,44 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,17,00);
-                Long date = cal.getTimeInMillis();
-                Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-                intent.putExtra("dateValue", date);
-                startActivity(intent);
+                Date date = cal.getTime();
+                valider(date,mButton17.getId());
+
             }
         });
 
 
+    }
+
+    boolean verifierDisponibilite(List<Disponibilite> disponibilites, Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        for(Disponibilite disponibilite:disponibilites){
+
+            if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public int getDiponibiliteID(List<Disponibilite> disponibilites, Date date){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        for(Disponibilite disponibilite:disponibilites){
+
+            if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
+                return disponibilite.getId();
+            }
+        }
+        return 0;
+    }
+
+    void valider(Date date,int idDisponibilite){
+        Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
+        intent.putExtra("dateValue", date.getTime());
+        intent.putExtra("medecin", 1); // le 1 correspond à l'id du medecin
+        intent.putExtra("idDisponibilite", idDisponibilite);
+        startActivity(intent);
     }
 
     @Override
@@ -194,4 +250,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

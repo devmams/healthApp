@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.mamadou.diallo.healthapp.R;
 import com.mamadou.diallo.healthapp.model.Disponibilite;
 import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
+import com.mamadou.diallo.healthapp.model.Medecin;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -41,17 +42,17 @@ public class ValidationRDVActivity extends AppCompatActivity {
         Long date = getIntent().getExtras().getLong("dateValue");
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-//        String strDate = dateFormat.format(date);
-//        Toast.makeText(getApplicationContext(), strDate, Toast.LENGTH_LONG).show();
+        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
-//        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
-//
-//        for(Disponibilite disponibilite :disponibiliteHelper.getMedecinDisponibilite(1)) // pour avoir la liste des disponibilité du medecin
-//            Toast.makeText(getApplicationContext(), ""+disponibilite.getMedecin().getNomMedecin(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
 
+        Medecin medecin = Medecin.getMedecin(getIntent().getExtras().getInt("medecin"));
+        int dispoId =getIntent().getExtras().getInt("idDisponibilite");
+        Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
+        intent.putExtra("dateValue", date);
 
-        String strMedecin = "DIALLO MAMADOU";
-        String strSpecialite = "Cardiologue";
+        String strMedecin = medecin.getPrenomMedecin()+" "+medecin.getNomMedecin();
+        String strSpecialite = medecin.getSpecialiteMedecin().getLibelleSpecialite();
         String strMotif = "Mal de coeur";
         String strDate = dateFormat.format(date);
 
