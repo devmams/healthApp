@@ -24,18 +24,15 @@
     <string name="confirmrdv">Confirm appointment</string>
 
 
-    <string name="speciality_prompt">Choose Speciality</string>
-    <string-array name="speciality_arrays">
-        <item>Choose Speciality</item>
-        <item>Ophthalmology</item>
-        <item>Dermatology</item>
-        <item>Cardiology</item>
-        <item>Neurology</item>
-    </string-array>
-
-    <string name="name_doctor_prompt">Name of doctor</string>
-    <string-array name="name_doctor_arrays">
-        <item>Name of doctor</item>
+    <string-array name="speciality_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
     </string-array>
 
 </resources>
