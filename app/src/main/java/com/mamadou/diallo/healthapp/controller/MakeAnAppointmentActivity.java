@@ -23,16 +23,30 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         spinner_1.setOnItemSelectedListener(this);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> adapter_1 = ArrayAdapter.createFromResource(this,
                 R.array.speciality_array, android.R.layout.simple_spinner_item);
 
 
 
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter_1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner_1.setAdapter(adapter);
+        spinner_1.setAdapter(adapter_1);
 
+
+        Spinner spinner_2 = (Spinner) findViewById(R.id.spinner2);
+        spinner_2.setOnItemSelectedListener(this);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter_2 = ArrayAdapter.createFromResource(this,
+                R.array.speciality_array, android.R.layout.simple_spinner_item);
+
+
+
+        // Specify the layout to use when the list of choices appears
+        adapter_2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner_2.setAdapter(adapter_2);
 
     }
 
