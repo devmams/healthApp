@@ -6,39 +6,53 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.mamadou.diallo.healthapp.R;
 
-public class HomePageActivity extends AppCompatActivity {
-
-    private Button mMakeAnAppointment;
-
+public class MakeAnAppointmentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_make_an_appointment);
 
-        mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
+        Spinner spinner_1 = (Spinner) findViewById(R.id.spinner1);
+        spinner_1.setOnItemSelectedListener(this);
 
-        mMakeAnAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MakeAnAppointmentActivity.class);
-                startActivity(intent);
-            }
-        });
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.speciality_array, android.R.layout.simple_spinner_item);
 
+
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner_1.setAdapter(adapter);
 
 
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
 
     @Override
     protected void onRestart() {
         super.onRestart();  // Always call the superclass method first
         recreate();
     }
+
 
     private void language_setting(){
         Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);
@@ -61,4 +75,5 @@ public class HomePageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

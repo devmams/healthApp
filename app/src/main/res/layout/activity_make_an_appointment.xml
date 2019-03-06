@@ -1,54 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".controller.MakeAnAppointmentActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/backg">
 
 
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="127dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/logo_health_app"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/logo_health_app" />
 
     <Spinner
         android:id="@+id/spinner1"
-        android:layout_width="300dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:animateLayoutChanges="false"
-        android:animationCache="false"
-        android:background="@color/colorAccent"
-        android:entries="@array/speciality_arrays"
-        android:prompt="@string/speciality_prompt"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="168dp" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorAccent"
-        android:prompt="@string/name_doctor_prompt"
-        android:entries="@array/name_doctor_arrays"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="216dp"
-
-        />
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
 
 
     <Button
         android:id="@+id/button1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorAccent"
         android:text="Disponibilité"
         android:textColor="@color/white"

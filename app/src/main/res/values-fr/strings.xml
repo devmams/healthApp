@@ -20,15 +20,18 @@
     <string name="available">Disponible</string>
     <string name="notavailable">Pas Disponible</string>
 
-    <string name="speciality_prompt">Choisis une Spécialité</string>
-    <string-array name="speciality_arrays">
-        <item>Choisis une Spécialité</item>
-        <item>Ophtalmologie</item>
-        <item>Dermatologie</item>
-        <item>Cardiologie</item>
-        <item>Neurologie</item>
+    <string-array name="speciality_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
     </string-array>
 
+<<<<<<< HEAD
     <string name="name_doctor_prompt">Nom du medecin</string>
     <string-array name="name_doctor_arrays">
         <item>Nom du medecin</item>
@@ -39,4 +42,6 @@
     <string name="speciality">Spécialité</string>
     <string name="reason">Motif</string>
     <string name="date">Date</string>
+=======
+>>>>>>> 952b7b679be0b3db060e9cb03929fcbea82859eb
 </resources>

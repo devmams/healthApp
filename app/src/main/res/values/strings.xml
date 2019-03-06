@@ -24,6 +24,7 @@
     <string name="confirmrdv">Confirm appointment</string>
 
 
+<<<<<<< HEAD
     <string name="speciality_prompt">Choose Speciality</string>
     <string-array name="speciality_arrays">
         <item>Choose Speciality</item>
@@ -40,6 +41,17 @@
     <string name="date">Date</string>
     <string-array name="name_doctor_arrays">
         <item>Name of doctor</item>
+=======
+    <string-array name="speciality_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+>>>>>>> 952b7b679be0b3db060e9cb03929fcbea82859eb
     </string-array>
 
 </resources>
