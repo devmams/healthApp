@@ -34,4 +34,5 @@
         <item>Nom du medecin</item>
     </string-array>
     <string name="itineraire">Itinéraire</string>
+    <string name="confirmrdv">Confirmer rendez-vous</string>
 </resources>

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
@@ -19,23 +21,53 @@ import java.util.Date;
 
 public class ValidationRDVActivity extends AppCompatActivity {
 
+    private TextView mMedecinTxt;
+    private TextView mSpecialiteTxt;
+    private TextView mMotifTxt;
+    private TextView mDateTxt;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validation_rdv);
+
+        mMedecinTxt = (TextView) findViewById(R.id.activity_validation_rdv_medecin_txt);
+        mSpecialiteTxt = (TextView) findViewById(R.id.activity_validation_rdv_specialite_txt);
+        mMotifTxt = (TextView) findViewById(R.id.activity_validation_rdv_motif_txt);
+        mDateTxt = (TextView) findViewById(R.id.activity_validation_rdv_date_txt);
+
+
         Long date = getIntent().getExtras().getLong("dateValue");
 
-
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//        String strDate = dateFormat.format(date);
+//        Toast.makeText(getApplicationContext(), strDate, Toast.LENGTH_LONG).show();
+
+//        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
+//
+//        for(Disponibilite disponibilite :disponibiliteHelper.getMedecinDisponibilite(1)) // pour avoir la liste des disponibilité du medecin
+//            Toast.makeText(getApplicationContext(), ""+disponibilite.getMedecin().getNomMedecin(),Toast.LENGTH_LONG).show();
+
+
+        String strMedecin = "DIALLO MAMADOU";
+        String strSpecialite = "Cardiologue";
+        String strMotif = "Mal de coeur";
         String strDate = dateFormat.format(date);
-        Toast.makeText(getApplicationContext(), strDate, Toast.LENGTH_LONG).show();
+
+        mMedecinTxt.setText("Medecin : "+ strMedecin);
+        mSpecialiteTxt.setText("Spécialité : "+ strSpecialite);
+        mMotifTxt.setText("Motif : "+ strMotif);
+        mDateTxt.setText("Date : "+ strDate);
 
 
 
-        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
-        for(Disponibilite disponibilite :disponibiliteHelper.getMedecinDisponibilite(1)) // pour avoir la liste des disponibilité du medecin
-            Toast.makeText(getApplicationContext(), ""+disponibilite.getMedecin().getNomMedecin(),Toast.LENGTH_LONG).show();
+
+
+
+
+
     }
 
 
