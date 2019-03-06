@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
     private TextView mSpecialiteTxt;
     private TextView mMotifTxt;
     private TextView mDateTxt;
+    private Button mButton;
 
 
     @Override
@@ -37,18 +40,20 @@ public class ValidationRDVActivity extends AppCompatActivity {
         mSpecialiteTxt = (TextView) findViewById(R.id.activity_validation_rdv_specialite_txt);
         mMotifTxt = (TextView) findViewById(R.id.activity_validation_rdv_motif_txt);
         mDateTxt = (TextView) findViewById(R.id.activity_validation_rdv_date_txt);
+        mButton = (Button) findViewById(R.id.activity_validation_rdv_btn);
+
 
 
         Long date = getIntent().getExtras().getLong("dateValue");
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
+         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
         Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
 
         Medecin medecin = Medecin.getMedecin(getIntent().getExtras().getInt("medecin"));
-        int dispoId =getIntent().getExtras().getInt("idDisponibilite");
-        Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
+        final int  dispoId =getIntent().getExtras().getInt("idDisponibilite");
+        final Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
         intent.putExtra("dateValue", date);
 
         String strMedecin = medecin.getPrenomMedecin()+" "+medecin.getNomMedecin();
@@ -62,7 +67,17 @@ public class ValidationRDVActivity extends AppCompatActivity {
         mDateTxt.setText("Date : "+ strDate);
 
 
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                disponibiliteHelper.prendreRendezVous(dispoId,LoginActivity.getUserConnecter().getId());
+                Toast.makeText(getApplicationContext(), ""+LoginActivity.getUserConnecter().getNom(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
+                startActivity(intent);
 
+
+            }
+        });
 
 
 

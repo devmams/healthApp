@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmailTxt;
     private EditText mPasswordTxt;
     private Button mLogInLogInBtn;
+    private static Utilisateur userConnecter ;
     Utilisateur user;
 
 
@@ -41,16 +42,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                // user = null;
                 user=new Utilisateur(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
-                if(user.login(getApplicationContext())!=null){
-
-                    /*Specialite sepecialite = new Specialite("Medecine generale");
-                    sepecialite.addSpecialite(getApplicationContext());
-                    for(Specialite sepe:sepecialite.getAll(getApplicationContext())){
-                        Toast.makeText(getApplicationContext(), " Specialite "+sepe,Toast.LENGTH_LONG).show();
-                    }
-                    */
+                user=user.login(getApplicationContext());
+                if(user!=null){
                     Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
-
+                    userConnecter=user;
+                    intent.putExtra("utilisateur", user);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",Toast.LENGTH_LONG).show();
@@ -93,4 +89,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    public static Utilisateur getUserConnecter() {
+        return userConnecter;
+    }
 }

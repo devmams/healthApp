@@ -51,6 +51,7 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
        // onCreate(db);
         ContentValues content = new ContentValues();
         content.put(KEY_DATE,date.getTime() );
+        content.put(KEY_UTILISATEUR, 0);
         content.put(KEY_MEDECIN,medecin);
         db.insert(TABLE_NAME, null,content );
         return true;
@@ -59,15 +60,15 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
 
 
 
-    public boolean prendreRendezVous( int disponibilité, int utilisateur){
+    public boolean prendreRendezVous( int disponibilite, int utilisateur){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues content= new ContentValues();
-        content.put(KEY_ID,0);
+        //content.put(KEY_ID,0);
         content.put(KEY_UTILISATEUR,utilisateur);
-        db.update(TABLE_NAME , content , KEY_ID +" =? ",new String[]{String.valueOf(utilisateur)});
-
+        db.update(TABLE_NAME , content , KEY_ID +" =? ",new String[]{String.valueOf(disponibilite)});
         return true;
     }
+
 
 
     /**
@@ -96,7 +97,7 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
      */
     public List<Disponibilite> getMedecinDisponibilite(int medecin){
         List<Disponibilite> listDisponibilite = new ArrayList<Disponibilite>();
-        String query = "SELECT * from "+TABLE_NAME+" where "+KEY_MEDECIN+"="+medecin+" and "+KEY_DATE+">"+(new Date()).getTime();
+        String query = "SELECT * from "+TABLE_NAME+" where "+KEY_MEDECIN+"="+medecin+" and "+KEY_DATE+">"+(new Date()).getTime()+" and  "+KEY_UTILISATEUR +"=0";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         if(cursor.moveToFirst()){

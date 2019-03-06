@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.mamadou.diallo.healthapp.R;
 import com.mamadou.diallo.healthapp.model.Disponibilite;
 import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
+import com.mamadou.diallo.healthapp.model.Medecin;
+import com.mamadou.diallo.healthapp.model.Specialite;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -48,13 +50,15 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         mButton16 = (Button) findViewById(R.id.activity_choisir_creneau_16);
         mButton17 = (Button) findViewById(R.id.activity_choisir_creneau_17);
         int  idBouton;
-
+        
         final int year = getIntent().getExtras().getInt("yearValue");
         final int month = (getIntent().getExtras().getInt("monthValue")+1);
         final int day = getIntent().getExtras().getInt("dayValue");
 
         Calendar cal = Calendar.getInstance();
+
         cal.set(year,month,day,9,00);
+
         Date date9 = cal.getTime();
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -62,10 +66,10 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
         DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
-        //disponibiliteHelper.ajouterDisponibilite(date9,1);
+       // disponibiliteHelper.ajouterDisponibilite(date9,1);
+
         List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(1);
 
-        cal.set(year,month,day,9,00);
         if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
             mButton09.setBackgroundResource(R.drawable.red_button);
             mButton09.setEnabled(true);
@@ -209,6 +213,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         for(Disponibilite disponibilite:disponibilites){
 
             if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
+                Toast.makeText(getApplicationContext(), ""+disponibilite.getUtilisateur().getId(),Toast.LENGTH_LONG).show();
+
                 return disponibilite.getId();
             }
         }

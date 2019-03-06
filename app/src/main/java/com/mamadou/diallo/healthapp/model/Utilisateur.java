@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.mamadou.diallo.healthapp.controller.LoginActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class Utilisateur extends AppCompatActivity {
+public class Utilisateur extends AppCompatActivity implements Serializable {
 
     // private UtilisateurHelper userHelper= new UtilisateurHelper();
     int id;
