@@ -23,25 +23,11 @@
     <string name="itineraire">Itinerary</string>
     <string name="confirmrdv">Confirm appointment</string>
 
-
-<<<<<<< HEAD
-    <string name="speciality_prompt">Choose Speciality</string>
-    <string-array name="speciality_arrays">
-        <item>Choose Speciality</item>
-        <item>Ophthalmology</item>
-        <item>Dermatology</item>
-        <item>Cardiology</item>
-        <item>Neurology</item>
-    </string-array>
-
-    <string name="name_doctor_prompt">Name of doctor</string>
     <string name="doctor">Doctor</string>
     <string name="speciality">Speciality</string>
     <string name="reason">Reason</string>
     <string name="date">Date</string>
-    <string-array name="name_doctor_arrays">
-        <item>Name of doctor</item>
-=======
+
     <string-array name="speciality_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -51,7 +37,6 @@
         <item>Saturn</item>
         <item>Uranus</item>
         <item>Neptune</item>
->>>>>>> 952b7b679be0b3db060e9cb03929fcbea82859eb
     </string-array>
 
 </resources>

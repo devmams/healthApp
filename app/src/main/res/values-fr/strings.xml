@@ -31,17 +31,11 @@
         <item>Neptune</item>
     </string-array>
 
-<<<<<<< HEAD
-    <string name="name_doctor_prompt">Nom du medecin</string>
-    <string-array name="name_doctor_arrays">
-        <item>Nom du medecin</item>
-    </string-array>
     <string name="itineraire">Itinéraire</string>
     <string name="confirmrdv">Confirmer rendez-vous</string>
     <string name="doctor">Médecin</string>
     <string name="speciality">Spécialité</string>
     <string name="reason">Motif</string>
     <string name="date">Date</string>
-=======
->>>>>>> 952b7b679be0b3db060e9cb03929fcbea82859eb
+
 </resources>
