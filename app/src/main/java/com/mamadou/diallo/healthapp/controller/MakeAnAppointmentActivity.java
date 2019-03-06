@@ -17,7 +17,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_an_appointment2);
+        setContentView(R.layout.activity_make_an_appointment);
 
         Spinner spinner_1 = (Spinner) findViewById(R.id.spinner1);
         spinner_1.setOnItemSelectedListener(this);
