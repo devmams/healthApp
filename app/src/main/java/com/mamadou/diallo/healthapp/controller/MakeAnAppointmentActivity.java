@@ -8,16 +8,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.mamadou.diallo.healthapp.R;
 
 public class MakeAnAppointmentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    Button mHoraireBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_an_appointment);
+
+        mHoraireBtn = (Button) findViewById(R.id.activity_make_an_appointment_horaire_btn);
+
+        mHoraireBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         Spinner spinner_1 = (Spinner) findViewById(R.id.spinner1);
         spinner_1.setOnItemSelectedListener(this);
