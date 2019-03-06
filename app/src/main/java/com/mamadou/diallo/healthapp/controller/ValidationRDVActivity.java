@@ -61,10 +61,10 @@ public class ValidationRDVActivity extends AppCompatActivity {
         String strMotif = "Mal de coeur";
         String strDate = dateFormat.format(date);
 
-        mMedecinTxt.setText("Medecin : "+ strMedecin);
-        mSpecialiteTxt.setText("Spécialité : "+ strSpecialite);
-        mMotifTxt.setText("Motif : "+ strMotif);
-        mDateTxt.setText("Date : "+ strDate);
+        mMedecinTxt.setText(getResources().getString(R.string.doctor) + " : " + strMedecin);
+        mSpecialiteTxt.setText(getResources().getString(R.string.speciality) + " : " + strSpecialite);
+        mMotifTxt.setText(getResources().getString(R.string.reason) + " : "+ strMotif);
+        mDateTxt.setText(getResources().getString(R.string.date) + " : " + strDate);
 
 
         mButton.setOnClickListener(new View.OnClickListener() {
