@@ -30,6 +30,11 @@ public class Disponibilite {
         this.utilisateur = utilisateur;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
     public Date getDate() {
         return date;
     }
