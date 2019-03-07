@@ -41,7 +41,6 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         for(int i=0;i<listSpecialite.size();i++)
             listSpecialiteString.add(listSpecialite.get(i).getLibelleSpecialite());
 

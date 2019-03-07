@@ -27,6 +27,7 @@
     <string name="reason">Motif</string>
     <string name="date">Date</string>
     <string name="schedule">Horaire</string>
-
-
+    <string name="motif">Motif</string>
+    <string name="choix_specialite">Choisissez la specialité</string>
+    <string name="choix_medecin">Choisissez un medecin</string>
 </resources>

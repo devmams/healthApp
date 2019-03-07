@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MakeAnAppointmentActivity"
-    android:orientation="vertical"
+    android:background="@drawable/backg"
     android:gravity="center_horizontal"
-    android:background="@drawable/backg">
-
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".controller.MakeAnAppointmentActivity">
 
 
     <ImageView
@@ -17,20 +17,60 @@
         android:layout_marginBottom="30dp"
         android:src="@drawable/logo_health_app" />
 
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/lobster"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:text="@string/choix_specialite"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        />
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textAlignment="center" />
 
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:fontFamily="@font/lobster"
+        android:text="@string/choix_medecin"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"/>
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
-    
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textAlignment="center"/>
+
+
+    <EditText
+        android:id="@+id/text_motif"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/dancing_script_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:background="@drawable/rounded_border_edittext"
+        android:hint="@string/motif"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/activity_make_an_appointment_horaire_btn"
@@ -40,8 +80,11 @@
         android:background="@drawable/rounded_border_button"
         android:text="@string/schedule"
         android:textColor="@color/white"
+        android:fontFamily="@font/lobster"
+        android:fontStyle="normal"
+        android:textSize="25sp"
         tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="430dp"/>
+        tools:layout_editor_absoluteY="430dp" />
 
 
 </LinearLayout>
