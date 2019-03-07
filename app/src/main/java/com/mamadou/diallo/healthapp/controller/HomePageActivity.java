@@ -14,6 +14,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private Button mMakeAnAppointment;
 
+    private Button itineraire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +22,23 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
+        itineraire = (Button) findViewById(R.id.activity_home_page_itineraire_btn);
 
         mMakeAnAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MakeAnAppointmentActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
                 startActivity(intent);
             }
         });
 
+        itineraire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
