@@ -27,6 +27,7 @@
     <string name="speciality">Speciality</string>
     <string name="reason">Reason</string>
     <string name="date">Date</string>
+    <string name="schedule">Schedule</string>
 
     <string-array name="speciality_array">
         <item>Mercury</item>

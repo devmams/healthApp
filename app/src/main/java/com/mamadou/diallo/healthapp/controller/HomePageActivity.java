@@ -13,6 +13,7 @@ import com.mamadou.diallo.healthapp.R;
 public class HomePageActivity extends AppCompatActivity {
 
     private Button mMakeAnAppointment;
+    private Button mMyAppointment;
 
     private Button itineraire;
 
@@ -22,12 +23,16 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
+
         itineraire = (Button) findViewById(R.id.activity_home_page_itineraire_btn);
+
+        mMyAppointment = (Button) findViewById(R.id.activity_home_page_my_appointments_btn);
+
 
         mMakeAnAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MakeAnAppointmentActivity.class);
                 startActivity(intent);
             }
         });
@@ -36,6 +41,14 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mMyAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyAppointmentActivity.class);
                 startActivity(intent);
             }
         });

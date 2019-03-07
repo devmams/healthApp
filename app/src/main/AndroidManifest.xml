@@ -16,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+=======
+        <activity android:name=".controller.MyAppointmentActivity"></activity>
+>>>>>>> 4f96d2d52cce9c1078eff15673f1aaf9352745d4
         <activity android:name=".controller.MakeAnAppointmentActivity" />
         <activity android:name=".controller.ItineraireActivity" />
         <activity android:name=".controller.ValidationRDVActivity" />

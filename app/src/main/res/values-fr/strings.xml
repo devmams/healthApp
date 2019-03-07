@@ -37,7 +37,7 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-
+    <string name="schedule">Horaire</string>
 
 
 </resources>
