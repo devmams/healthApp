@@ -10,8 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import java.util.List;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Specialite;
+
+import java.util.List;
 
 public class MakeAnAppointmentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -35,6 +39,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
 
         Spinner spinner_1 = (Spinner) findViewById(R.id.spinner1);
         spinner_1.setOnItemSelectedListener(this);
+
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter_1 = ArrayAdapter.createFromResource(this,

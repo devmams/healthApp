@@ -56,7 +56,6 @@ public class Medecin {
         medecins.add(new Medecin(3,"Ange","DREY",Specialite.getSpecialite(2)) );
 
         return medecins;
-
     }
 
     public static Medecin getMedecin(int idMedecin){
@@ -68,6 +67,9 @@ public class Medecin {
         return null;
 
     }
+
+
+
 
 
 
