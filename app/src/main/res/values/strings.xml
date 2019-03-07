@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">healthApp</string>
     <string name="helloo">hello test !!</string>
     <string name="username">Username</string>
@@ -29,16 +29,6 @@
     <string name="date">Date</string>
     <string name="schedule">Schedule</string>
 
-    <string-array name="speciality_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps" translatable="false" tools:ignore="MissingTranslation">title_activity_maps</string>
 
 </resources>

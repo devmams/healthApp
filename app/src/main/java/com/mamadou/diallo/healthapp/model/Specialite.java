@@ -45,11 +45,11 @@ public class Specialite {
 
     public List<Specialite> getAll(Context context){
         SpecialiteHelper specialiteHelper =  new SpecialiteHelper(context);
-        return   null;//specialiteHelper.getAllSpecialite();
+        return   null;
     }
 
     public  static Specialite getSpecialite( int idSpecialite){
-        getAllSpecialite();
+        //getAllSpecialite();
         for(Specialite specialite :  listeSpecialites){
 
             if(specialite.idSpecialite ==idSpecialite ){

@@ -52,10 +52,11 @@ public class Medecin {
     public static List<Medecin> getAllMedecin(){
         // List<Medecin> medecins =  new ArrayList<Medecin>();
         medecins.add(new Medecin(1,"ADAMS","Gerard",Specialite.getSpecialite(1)) );
-        medecins.add(new Medecin(2,"Stephanie","ROSE",Specialite.getSpecialite(2)) );
+        medecins.add(new Medecin(2,"Stephanie","ROSE",Specialite.getSpecialite(1)) );
         medecins.add(new Medecin(3,"Ange","DREY",Specialite.getSpecialite(2)) );
 
         return medecins;
+
     }
 
     public static Medecin getMedecin(int idMedecin){
@@ -70,8 +71,16 @@ public class Medecin {
 
 
 
+    public static List<Medecin> getMedecinsBySpecialite(String libelleSpecialite){
+        List<Medecin> newList=new ArrayList<>();
+        for(Medecin medecin :  medecins)
+            if(medecin.getSpecialiteMedecin().getLibelleSpecialite().equals(libelleSpecialite))
+                newList.add(medecin);
+
+        return newList;
 
 
+    }
 
 
 
