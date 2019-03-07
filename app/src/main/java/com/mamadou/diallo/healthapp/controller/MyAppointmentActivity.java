@@ -7,6 +7,7 @@ import com.mamadou.diallo.healthapp.R;
 
 public class MyAppointmentActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

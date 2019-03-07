@@ -75,6 +75,8 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
      * @return liste de toutes les disponibilité
      */
     public List<Disponibilite> getAllDisponibilite(){
+
+
         List<Disponibilite> listDisponibilite = new ArrayList<Disponibilite>();
         String query = "SELECT * from "+TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
