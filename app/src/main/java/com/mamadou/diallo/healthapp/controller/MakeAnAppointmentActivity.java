@@ -69,6 +69,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
 
         // Specify the layout to use when the list of choices appears
         adapter_1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         // Apply the adapter to the spinner
         spinner_1.setAdapter(adapter_1);
 
