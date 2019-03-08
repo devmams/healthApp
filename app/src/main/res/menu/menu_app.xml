@@ -1,12 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    
+
     <item
         android:id="@+id/action_language"
+        android:icon="@drawable/menu_icon"
         android:title="@string/language"
-        app:showAsAction="never"
-        android:icon="@drawable/ic_launcher"
-        />
+        android:visible="true"
+        app:showAsAction="ifRoom|collapseActionView" />
 
 </menu>

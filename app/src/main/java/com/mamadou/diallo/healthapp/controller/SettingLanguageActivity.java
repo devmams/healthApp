@@ -3,6 +3,7 @@ package com.mamadou.diallo.healthapp.controller;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -73,12 +74,12 @@ public class SettingLanguageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //ajoute les entrées de menu_test à l'ActionBar
-        
         getMenuInflater().inflate(R.menu.menu_app, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.action_language:
                 language_setting();
