@@ -36,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:dropDownSelector="@color/colorAccent"/>
 
     <TextView
         android:layout_width="300dp"
@@ -56,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:dropDownSelector="@color/colorAccent" />
 
 
     <EditText
@@ -64,7 +66,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/dancing_script_regular"
         android:fontStyle="normal"
         android:fontWeight="400"
@@ -76,7 +78,7 @@
         android:id="@+id/activity_make_an_appointment_horaire_btn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_border_button"
         android:text="@string/schedule"
         android:textColor="@color/white"

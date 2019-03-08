@@ -52,8 +52,15 @@ public class Medecin {
     public static List<Medecin> getAllMedecin(){
         // List<Medecin> medecins =  new ArrayList<Medecin>();
         medecins.add(new Medecin(1,"ADAMS","Gerard",Specialite.getSpecialite(1)) );
-        medecins.add(new Medecin(2,"Stephanie","ROSE",Specialite.getSpecialite(1)) );
-        medecins.add(new Medecin(3,"Ange","DREY",Specialite.getSpecialite(2)) );
+        medecins.add(new Medecin(2,"LAURENT","Bruno",Specialite.getSpecialite(1)) );
+        medecins.add(new Medecin(3,"Stephanie","ROSE",Specialite.getSpecialite(1)) );
+        medecins.add(new Medecin(4,"Besnard","Françoise",Specialite.getSpecialite(2)) );
+        medecins.add(new Medecin(5,"Lefevre","Thierry",Specialite.getSpecialite(2)) );
+        medecins.add(new Medecin(6,"Ange","DREY",Specialite.getSpecialite(2)) );
+        medecins.add(new Medecin(4,"Zabel","Thomas",Specialite.getSpecialite(3)) );
+        medecins.add(new Medecin(5,"Lefevre","Thierry",Specialite.getSpecialite(4)) );
+        medecins.add(new Medecin(6,"Chaignaud","Maryvette",Specialite.getSpecialite(4)) );
+
 
         return medecins;
 
