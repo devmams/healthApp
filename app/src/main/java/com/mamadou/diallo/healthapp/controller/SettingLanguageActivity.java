@@ -2,6 +2,8 @@ package com.mamadou.diallo.healthapp.controller;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +28,6 @@ public class SettingLanguageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting_language);
 
         mValidateBtn = (Button) findViewById(R.id.activity_setting_language_validation_btn);
-
 
             mValidateBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,6 +79,7 @@ public class SettingLanguageActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.action_language:
                 language_setting();
