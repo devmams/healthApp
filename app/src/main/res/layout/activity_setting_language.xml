@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
+            android:fontFamily="@font/typo_graphica"
             android:onClick="onRadioButtonClicked"
             android:text="@string/francais"
             tools:ignore="OnClick" />
@@ -38,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:fontFamily="@font/typo_graphica"
             android:onClick="onRadioButtonClicked"
             android:text="@string/english"
             tools:ignore="OnClick" />
@@ -48,6 +50,9 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:fontFamily="@font/lobster"
+        android:fontStyle="normal"
+        android:fontWeight="400"
         android:background="@drawable/rounded_border_button"
         android:text="@string/save"
         android:textColor="@color/white"

@@ -45,6 +45,9 @@
         android:ems="10"
         android:background="@drawable/rounded_border_button"
         android:text="@string/login"
+        android:fontFamily="@font/lobster"
+        android:fontStyle="normal"
+        android:textSize="18sp"
         android:textColor="@color/white"
         android:id="@+id/activity_login_login_btn"/>
 

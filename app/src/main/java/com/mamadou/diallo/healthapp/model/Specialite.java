@@ -26,6 +26,8 @@ public class Specialite {
         listeSpecialites.add(new Specialite(1,"Chirurgie")) ;
         listeSpecialites.add(new Specialite(2,"Medecine Generale")) ;
         listeSpecialites.add(new Specialite(3,"Ophtalmologie")) ;
+        listeSpecialites.add(new Specialite(4,"Dermatologie")) ;
+
 
         return listeSpecialites;
 
@@ -45,11 +47,11 @@ public class Specialite {
 
     public List<Specialite> getAll(Context context){
         SpecialiteHelper specialiteHelper =  new SpecialiteHelper(context);
-        return   null;//specialiteHelper.getAllSpecialite();
+        return   null;
     }
 
     public  static Specialite getSpecialite( int idSpecialite){
-        getAllSpecialite();
+        //getAllSpecialite();
         for(Specialite specialite :  listeSpecialites){
 
             if(specialite.idSpecialite ==idSpecialite ){
