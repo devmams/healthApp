@@ -26,18 +26,8 @@
     <string name="speciality">Spécialité</string>
     <string name="reason">Motif</string>
     <string name="date">Date</string>
-
-    <string-array name="speciality_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
     <string name="schedule">Horaire</string>
-
-
+    <string name="motif">Motif</string>
+    <string name="choix_specialite">Choisissez la specialité</string>
+    <string name="choix_medecin">Choisissez un medecin</string>
 </resources>
