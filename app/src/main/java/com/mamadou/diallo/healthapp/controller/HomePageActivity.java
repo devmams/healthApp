@@ -7,8 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.Disponibilite;
+
+import java.util.List;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -21,6 +25,7 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
 
         mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
 
