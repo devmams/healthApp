@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -44,38 +45,50 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Pair<String, String> pair = characters.get(position);
-        holder.display(pair);
+//        holder.display(pair);
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView name;
-        private final TextView description;
+//        private final TextView name;
+//        private final TextView description;
 
         private Pair<String, String> currentPair;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
-            name = ((TextView) itemView.findViewById(R.id.medecin));
-            description = ((TextView) itemView.findViewById(R.id.specialite));
+//            name = ((TextView) itemView.findViewById(R.id.medecin));
+//            description = ((TextView) itemView.findViewById(R.id.specialite));
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
+                            .setTitle("ddff")
+                            .setMessage("ddd")
                             .show();
+                }
+            });
+
+            itemView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    new AlertDialog.Builder(itemView.getContext())
+                            .setTitle("ddff")
+                            .setMessage("ddd")
+                            .show();
+                    return false;
                 }
             });
         }
 
-        public void display(Pair<String, String> pair) {
-            currentPair = pair;
-            name.setText(pair.first);
-            description.setText(pair.second);
-        }
+//        public void display(Pair<String, String> pair) {
+//            currentPair = pair;
+//            name.setText(pair.first);
+//            description.setText(pair.second);
+//        }
     }
 
 }

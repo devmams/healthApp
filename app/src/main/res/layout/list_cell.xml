@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="20dp"
     android:layout_width="match_parent"
@@ -48,23 +50,21 @@
         android:elevation="4dp"
         android:focusable="true"
         android:visibility="visible"
-        android:id="@+id/data_ayout">
+        android:id="@+id/data_layout">
 
         <TextView
             android:layout_marginTop="10dp"
-            android:id="@+id/medecin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Personnage" ></TextView>
+            android:text="Mr Diallo"
+            android:id="@+id/medecin"/>
 
         <TextView
             android:layout_marginTop="10dp"
-            android:id="@+id/specialite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:lines="1"
-            android:ellipsize="end"
-            tools:text="Description" ></TextView>
+            android:text="Cardilologue"
+            android:id="@+id/specialite"/>
 
         <TextView
             android:layout_marginTop="10dp"
@@ -85,3 +85,4 @@
 
 
 </RelativeLayout>
+
