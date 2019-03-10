@@ -3,6 +3,7 @@ package com.mamadou.diallo.healthapp.controller;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ClipData;
+import android.content.Context;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
@@ -17,7 +18,11 @@ import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 import com.mamadou.diallo.healthapp.model.Disponibilite;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
+import com.mamadou.diallo.healthapp.model.Utilisateur;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,14 +44,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //            Pair.create("John Faa", "The King of all gyptian people.")
 //    );
 
-    public ArrayList<String> list = new ArrayList<>();
 
-    public MyAdapter(){
-        list.add("DIALLO");
-        list.add("MAMADOU");
-        list.add("OUSMANE");
-        list.add("OLIVE");
-        list.add("YASSINE");
+
+
+//    public List<String> list = new ArrayList<>();
+
+    public List<Disponibilite> list;
+
+    public MyAdapter(Context cont){
+        final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(cont);
+        list = disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
+
     }
 
 
@@ -65,9 +73,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        final String item = list.get(position);
+        final Disponibilite item = list.get(position);
 
-        holder.mMedecin.setText(item);
+        holder.mMedecin.setText(item.getMedecin().getNomMedecin()+ " " +item.getMedecin().getPrenomMedecin());
+//        holder.mSpecialite.setText(item.getMedecin().getSpecialiteMedecin().getLibelleSpecialite());
+        holder.mMotif.setText("Pas precisé");
+        long d = item.getDate().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String strDate = dateFormat.format(d);
+        holder.mDate.setText(strDate);
     }
 
     public void removeItem(int position) {

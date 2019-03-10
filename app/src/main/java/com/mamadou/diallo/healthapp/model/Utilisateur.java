@@ -82,10 +82,10 @@ public class Utilisateur extends AppCompatActivity implements Serializable {
     }
 
 
-    public   List<Disponibilite> getNextVisit(){
-        DisponibiliteHelper disponibiliteHelper=new DisponibiliteHelper(getApplicationContext());
-        return disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
-    }
+//    public List<Disponibilite> getNextVisit(){
+//        DisponibiliteHelper disponibiliteHelper = new DisponibiliteHelper(getApplicationContext());
+//        return disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
+//    }
 
 
 

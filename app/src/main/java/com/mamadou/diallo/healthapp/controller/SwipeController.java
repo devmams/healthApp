@@ -22,13 +22,6 @@ import com.mamadou.diallo.healthapp.R;
 
 import static android.support.v7.widget.helper.ItemTouchHelper.*;
 
-// SwipeController.java
-enum ButtonsState {
-    GONE,
-    LEFT_VISIBLE,
-    RIGHT_VISIBLE
-}
-
 class SwipeController extends Callback {
 
 
@@ -37,7 +30,6 @@ class SwipeController extends Callback {
 
     RectF buttonInstance;
     private boolean swipeBack = false;
-    private ButtonsState buttonShowedState = ButtonsState.GONE;
     private static final float buttonWidth = 300;
 
     public SwipeController(MyAdapter myAdapter){
@@ -47,15 +39,6 @@ class SwipeController extends Callback {
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         return makeMovementFlags(0, LEFT );
-    }
-
-    @Override
-    public boolean isLongPressDragEnabled() {
-        return true;
-    }
-    @Override
-    public boolean isItemViewSwipeEnabled() {
-        return true;
     }
 
     @Override
@@ -88,7 +71,6 @@ class SwipeController extends Callback {
             setTouchListener(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
 
-
         super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY/3, actionState, isCurrentlyActive);
         drawButtons(c, viewHolder);
     }
@@ -113,15 +95,6 @@ class SwipeController extends Callback {
 
     }
 
-    private void drawText(String text, Canvas c, RectF button, Paint p) {
-        float textSize = 60;
-        p.setColor(Color.WHITE);
-        p.setAntiAlias(true);
-        p.setTextSize(textSize);
-
-        float textWidth = p.measureText(text);
-        c.drawText(text, button.centerX()-(textWidth/2), button.centerY()+(textSize/2), p);
-    }
 
     private void setTouchListener(Canvas c,
                                   final RecyclerView recyclerView,
@@ -149,29 +122,18 @@ class SwipeController extends Callback {
                         if (x > (itemView.getRight() - buttonWidthWithoutPadding) && x < itemView.getRight() &&
                                 y >  itemView.getTop() && y < itemView.getBottom()) {
                             int p = viewHolder.getAdapterPosition();
-                            Toast.makeText(v.getContext(), "élément !!" + myAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
-
                             myAdapter.removeItem(p);
-                            Toast.makeText(v.getContext(), "élément supprimé !!" + myAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
                         }
-                        swipeBack = true;
                         return false;
                 }
 
                 return false;
 
-//                Toast.makeText(v.getContext(), "tttt : ",Toast.LENGTH_LONG).show();
             }
 
-
-//
         });
 
-
     }
 
-    public void onDraw(Canvas c) {
-
-    }
 }
 

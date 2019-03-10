@@ -18,7 +18,7 @@ import com.mamadou.diallo.healthapp.R;
 public class MyAppointmentActivity extends AppCompatActivity {
 
     RecyclerView rv;
-    MyAdapter myAdapter = new MyAdapter();
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class MyAppointmentActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
+        myAdapter = new MyAdapter(getApplicationContext());
         RecyclerView rv = (RecyclerView) findViewById(R.id.my_recycler_view);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setAdapter(myAdapter);
