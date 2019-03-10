@@ -53,11 +53,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //    public List<String> list = new ArrayList<>();
 
     public List<Disponibilite> list;
+    final DisponibiliteHelper disponibiliteHelper;
+    public Context context;
 
     public MyAdapter(Context cont){
-        final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(cont);
+        context = cont;
+        disponibiliteHelper = new DisponibiliteHelper(cont);
         list = disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
-
     }
 
 
@@ -78,10 +80,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Disponibilite item = list.get(position);
-
         holder.mMedecin.setText(item.getMedecin().getNomMedecin()+ " " +item.getMedecin().getPrenomMedecin());
-//        holder.mSpecialite.setText(item.getMedecin().getSpecialiteMedecin().getLibelleSpecialite());
-        holder.mMotif.setText("Pas precisé");
+        holder.mSpecialite.setText("ma specialité");
         long d = item.getDate().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String strDate = dateFormat.format(d);
@@ -89,8 +89,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public void removeItem(int position) {
-
         notifyItemRangeChanged(position, list.size());
+        Disponibilite d = list.get(position);
+        Utilisateur.annulerRdv(context,d.getId());
         list.remove(position);
         notifyItemRemoved(position);
         notifyDataSetChanged();
@@ -116,17 +117,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             mSpecialite = (TextView) itemView.findViewById(R.id.specialite);
             mMotif = (TextView) itemView.findViewById(R.id.motif);
             mDate = (TextView) itemView.findViewById(R.id.date);
-
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle("ddff")
-                            .setMessage("ddd")
-                            .show();
-                }
-            });
 
         }
 

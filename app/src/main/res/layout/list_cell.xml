@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mal de tete"
+            android:text="Pas precisé"
             android:id="@+id/motif"/>
 
         <TextView
