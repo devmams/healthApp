@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.view.MotionEvent;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -28,12 +31,18 @@ enum ButtonsState {
 
 class SwipeController extends Callback {
 
+
     private RecyclerView.ViewHolder currentItemViewHolder = null;
+    private MyAdapter myAdapter;
 
     RectF buttonInstance;
     private boolean swipeBack = false;
     private ButtonsState buttonShowedState = ButtonsState.GONE;
     private static final float buttonWidth = 300;
+
+    public SwipeController(MyAdapter myAdapter){
+        this.myAdapter = myAdapter;
+    }
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -79,37 +88,29 @@ class SwipeController extends Callback {
             setTouchListener(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
 
-        recyclerView.setLayoutParams(new RecyclerView.LayoutParams(
-                RecyclerView.LayoutParams.WRAP_CONTENT,
-                RecyclerView.LayoutParams.WRAP_CONTENT));
 
-//        recyclerView.setLayoutParams(new ViewGroup.LayoutParams(
-//        ViewGroup.LayoutParams.WRAP_CONTENT,
-//        ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        super.onChildDraw(c, recyclerView, viewHolder, dX/2, dY/2, actionState, isCurrentlyActive);
-
+        super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY/3, actionState, isCurrentlyActive);
         drawButtons(c, viewHolder);
-
     }
+
 
     private void drawButtons(Canvas c, RecyclerView.ViewHolder viewHolder) {
         float buttonWidthWithoutPadding = buttonWidth - 20;
-        float corners = 16;
 
         View itemView = viewHolder.itemView;
 
         Paint p = new Paint();
 
-
         RectF rightButton = new RectF(itemView.getRight() - buttonWidthWithoutPadding, itemView.getTop(), itemView.getRight(), itemView.getBottom());
         p.setColor(Color.RED);
-        c.drawRoundRect(rightButton, corners, corners, p);
-        drawText("DELETE", c, rightButton, p);
-        buttonInstance = null;
-        if (buttonShowedState == ButtonsState.RIGHT_VISIBLE) {
-            buttonInstance = rightButton;
-        }
+
+        Drawable d = viewHolder.itemView.getResources().getDrawable(R.drawable.ic_delete_black_24dp, null);
+        d.setBounds((int) (itemView.getRight() - buttonWidthWithoutPadding), itemView.getTop(), itemView.getRight(), itemView.getBottom());
+
+        c.drawRect(rightButton, p);
+        d.setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
+        d.draw(c);
+
     }
 
     private void drawText(String text, Canvas c, RectF button, Paint p) {
@@ -124,21 +125,48 @@ class SwipeController extends Callback {
 
     private void setTouchListener(Canvas c,
                                   final RecyclerView recyclerView,
-                                  RecyclerView.ViewHolder viewHolder,
+                                  final RecyclerView.ViewHolder viewHolder,
                                   float dX, float dY,
                                   int actionState, boolean isCurrentlyActive) {
 
-//        recyclerView.setLayoutParams(new ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.WRAP_CONTENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT));
 
         recyclerView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                swipeBack = event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP;
+                float buttonWidthWithoutPadding = buttonWidth - 20;
+                View itemView = viewHolder.itemView;
+                long i = viewHolder.getAdapterPosition();
+
+                float x = event.getX();
+                float y = event.getY();
+
+
+                switch(event.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+//                        Toast.makeText(v.getContext(), "("+i+")", Toast.LENGTH_SHORT).show();
+
+                        if (x > (itemView.getRight() - buttonWidthWithoutPadding) && x < itemView.getRight() &&
+                                y >  itemView.getTop() && y < itemView.getBottom()) {
+                            int p = viewHolder.getAdapterPosition();
+                            Toast.makeText(v.getContext(), "élément !!" + myAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
+
+                            myAdapter.removeItem(p);
+                            Toast.makeText(v.getContext(), "élément supprimé !!" + myAdapter.getItemCount(), Toast.LENGTH_SHORT).show();
+                        }
+                        swipeBack = true;
+                        return false;
+                }
+
                 return false;
+
+//                Toast.makeText(v.getContext(), "tttt : ",Toast.LENGTH_LONG).show();
             }
+
+
+//
         });
+
 
     }
 

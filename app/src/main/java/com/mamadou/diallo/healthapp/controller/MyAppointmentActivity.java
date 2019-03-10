@@ -18,30 +18,33 @@ import com.mamadou.diallo.healthapp.R;
 public class MyAppointmentActivity extends AppCompatActivity {
 
     RecyclerView rv;
+    MyAdapter myAdapter = new MyAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_appointment);
         setupRecyclerView();
-
     }
 
     private void setupRecyclerView() {
         RecyclerView rv = (RecyclerView) findViewById(R.id.my_recycler_view);
-
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        rv.setAdapter(new MyAdapter());
+        rv.setAdapter(myAdapter);
 
 
-        final SwipeController swipeController = new SwipeController();
+        final SwipeController swipeController = new SwipeController(myAdapter);
 
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
         itemTouchhelper.attachToRecyclerView(rv);
 
     }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();  // Always call the superclass method first
+        recreate();
+    }
 
 }
 
