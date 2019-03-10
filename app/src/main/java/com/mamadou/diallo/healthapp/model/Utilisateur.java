@@ -82,6 +82,19 @@ public class Utilisateur extends AppCompatActivity implements Serializable {
     }
 
 
+    public static void annulerRdv(Context context, int idDispo){
+        DisponibiliteHelper disponibiliteHelper = new DisponibiliteHelper(context);
+        disponibiliteHelper.annulerRendezVous(idDispo);
+    }
+
+
+
+//    public List<Disponibilite> getNextVisit(){
+//        DisponibiliteHelper disponibiliteHelper = new DisponibiliteHelper(getApplicationContext());
+//        return disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
+//    }
+
+
 
 
     public int getId() {

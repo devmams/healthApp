@@ -46,7 +46,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
 
         Long date = getIntent().getExtras().getLong("dateValue");
 
-         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
         Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);

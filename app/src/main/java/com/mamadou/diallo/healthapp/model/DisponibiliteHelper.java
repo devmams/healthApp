@@ -69,6 +69,14 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean annulerRendezVous( int disponibilite){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues content= new ContentValues();
+        content.put(KEY_UTILISATEUR,0);
+        db.update(TABLE_NAME , content , KEY_ID +" =? ",new String[]{String.valueOf(disponibilite)});
+        return true;
+    }
+
 
 
     /**

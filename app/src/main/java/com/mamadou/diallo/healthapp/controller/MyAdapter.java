@@ -2,39 +2,70 @@ package com.mamadou.diallo.healthapp.controller;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 import com.mamadou.diallo.healthapp.model.Disponibilite;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
+import com.mamadou.diallo.healthapp.model.Utilisateur;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
-    private final List<Pair<String, String>> characters = Arrays.asList(
 
-            Pair.create("Lyra Belacqua", "Brave, curious, and crafty, she has been prophesied by the witches to help the balance of life"),
-            Pair.create("Pantalaimon", "Lyra's daemon, nicknamed Pan."),
-            Pair.create("Roger Parslow", "Lyra's friends"),
-            Pair.create("Lord Asriel", "Lyra's uncle"),
-            Pair.create("Marisa Coulter", "Intelligent and beautiful, but extremely ruthless and callous."),
-            Pair.create("Iorek Byrnison", "Armoured bear, Rightful king of the panserbjørne. Reduced to a slave of the human village Trollesund."),
-            Pair.create("Serafina Pekkala", "Witch who closely follows Lyra on her travels."),
-            Pair.create("Lee Scoresby", "Texan aeronaut who transports Lyra in his balloon. Good friend with Iorek Byrnison."),
-            Pair.create("Ma Costa", "Gyptian woman whose son, Billy Costa is abducted by the \"Gobblers\"."),
-            Pair.create("John Faa", "The King of all gyptian people.")
-    );
+   // private final List<Pair<String, String>> characters = Arrays.asList(
+
+
+//    public static List<Pair<String, String>> characters = Arrays.asList(
+//            Pair.create("Lyra Belacqua", "Brave, curious, and crafty, she has been prophesied by the witches to help the balance of life"),
+//            Pair.create("Pantalaimon", "Lyra's daemon, nicknamed Pan."),
+//            Pair.create("Roger Parslow", "Lyra's friends"),
+//            Pair.create("Lord Asriel", "Lyra's uncle"),
+//            Pair.create("Marisa Coulter", "Intelligent and beautiful, but extremely ruthless and callous."),
+//            Pair.create("Iorek Byrnison", "Armoured bear, Rightful king of the panserbjørne. Reduced to a slave of the human village Trollesund."),
+//            Pair.create("Serafina Pekkala", "Witch who closely follows Lyra on her travels."),
+//            Pair.create("Lee Scoresby", "Texan aeronaut who transports Lyra in his balloon. Good friend with Iorek Byrnison."),
+//            Pair.create("Ma Costa", "Gyptian woman whose son, Billy Costa is abducted by the \"Gobblers\"."),
+//            Pair.create("John Faa", "The King of all gyptian people.")
+//    );
+
+
+
+
+//    public List<String> list = new ArrayList<>();
+
+    public List<Disponibilite> list;
+
+    public MyAdapter(Context cont){
+        final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(cont);
+        list = disponibiliteHelper.getNextUserDisponibilite(LoginActivity.getUserConnecter().getId());
+
+    }
+
+
+
 
     @Override
     public int getItemCount() {
-        return characters.size();
+        return list.size();
     }
 
     @Override
@@ -46,39 +77,59 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Pair<String, String> pair = characters.get(position);
-        holder.display(pair);
+        final Disponibilite item = list.get(position);
+
+        holder.mMedecin.setText(item.getMedecin().getNomMedecin()+ " " +item.getMedecin().getPrenomMedecin());
+//        holder.mSpecialite.setText(item.getMedecin().getSpecialiteMedecin().getLibelleSpecialite());
+        holder.mMotif.setText("Pas precisé");
+        long d = item.getDate().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String strDate = dateFormat.format(d);
+        holder.mDate.setText(strDate);
+    }
+
+    public void removeItem(int position) {
+
+        notifyItemRangeChanged(position, list.size());
+        list.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView name;
-        private final TextView description;
+        public RelativeLayout relativeLayout;
+        public ImageView editImage;
+        public ImageView deleteImage;
+
+        public TextView mMedecin;
+        public TextView mSpecialite;
+        public TextView mMotif;
+        public TextView mDate;
 
         private Pair<String, String> currentPair;
 
         public MyViewHolder(final View itemView) {
             super(itemView);
 
-            name = ((TextView) itemView.findViewById(R.id.medecin));
-            description = ((TextView) itemView.findViewById(R.id.specialite));
+            mMedecin = (TextView) itemView.findViewById(R.id.medecin);
+            mSpecialite = (TextView) itemView.findViewById(R.id.specialite);
+            mMotif = (TextView) itemView.findViewById(R.id.motif);
+            mDate = (TextView) itemView.findViewById(R.id.date);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
+                            .setTitle("ddff")
+                            .setMessage("ddd")
                             .show();
                 }
             });
+
         }
 
-        public void display(Pair<String, String> pair) {
-            currentPair = pair;
-            name.setText(pair.first);
-            description.setText(pair.second);
-        }
     }
 
 }
