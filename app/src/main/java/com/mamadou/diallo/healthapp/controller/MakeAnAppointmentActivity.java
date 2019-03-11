@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import com.mamadou.diallo.healthapp.R;
@@ -26,27 +28,36 @@ import static com.mamadou.diallo.healthapp.model.Specialite.getAllSpecialite;
 
 public class MakeAnAppointmentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private List<String> listSpecialiteString = new ArrayList<String>();
-    private List<Specialite> listSpecialite = getAllSpecialite();
+//    private List<String> listSpecialiteString = new ArrayList<String>();
+    private List<String> listSpecialiteString;
+//    private List<Specialite> listSpecialite = getAllSpecialite();
+    private List<Specialite> listSpecialite;
 
-    private List<String> listMedecinString=new ArrayList<String>();
-    private List<Medecin> listMedecin=getAllMedecin();
+//    private List<String> listMedecinString=new ArrayList<String>();
+    private List<String> listMedecinString;
+//    private List<Medecin> listMedecin=getAllMedecin();
+    private List<Medecin> listMedecin;
     Spinner spinner_1,spinner_2;
     String medecinChoisi = "";
 
     int ps;
 
-
+    ArrayAdapter<String> adapter_1;
     Button mHoraireBtn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        for(int i=0;i<listSpecialite.size();i++)
-            listSpecialiteString.add(listSpecialite.get(i).getLibelleSpecialite());
-
         setContentView(R.layout.activity_make_an_appointment);
+
+        listSpecialiteString = new ArrayList<String>();
+        listMedecinString=new ArrayList<String>();
+        listSpecialite = getAllSpecialite();
+        listMedecin = getAllMedecin();
+
+        for (int i = 0; i < listSpecialite.size(); i++)
+            listSpecialiteString.add(listSpecialite.get(i).getLibelleSpecialite());
 
         spinner_1 = (Spinner) findViewById(R.id.spinner1);
         spinner_1.setOnItemSelectedListener(this);
@@ -57,15 +68,28 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
-                Toast.makeText(getApplicationContext(), "med : " + medecinChoisi, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "med : " + medecinChoisi, Toast.LENGTH_SHORT).show();
                 intent.putExtra("medecin", medecinChoisi);
                 startActivity(intent);
             }
         });
 
 
+        Toast.makeText(getApplicationContext(), "med1 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
+
+//        listSpecialiteString.clear();
+
+        Toast.makeText(getApplicationContext(), "med2 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
+
+
+        HashSet<String> hashSet = new HashSet<String>();
+        hashSet.addAll(listSpecialiteString);
+        listSpecialiteString.clear();
+        listSpecialiteString.addAll(hashSet);
+        Collections.sort(listSpecialiteString);
+
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapter_1 = new ArrayAdapter<String>(this,
+        adapter_1 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listSpecialiteString);
 
 
@@ -76,7 +100,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         // Apply the adapter to the spinner
         spinner_1.setAdapter(adapter_1);
 
-
+        adapter_1.notifyDataSetChanged();
 
     }
 
@@ -90,12 +114,18 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
             listMedecinString.add(listMedecin.get(i).getNomMedecin()+" "+listMedecin.get(i).getPrenomMedecin());
         }
 
+        HashSet<String> hashSet = new HashSet<String>();
+        hashSet.addAll(listMedecinString);
+        listMedecinString.clear();
+        listMedecinString.addAll(hashSet);
+        Collections.sort(listMedecinString);
+
         ArrayAdapter<String> adapter_2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listMedecinString);
         adapter_2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter_2.notifyDataSetChanged();
         spinner_2.setAdapter(adapter_2);
-        Toast.makeText(this,""+ spinner_2.getSelectedItem(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this,""+ spinner_2.getSelectedItem(), Toast.LENGTH_SHORT).show();
         medecinChoisi= spinner_2.getSelectedItem().toString();
 
 

@@ -44,8 +44,6 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choisir_creneau);
         medecin = Medecin.getMedecinIdByName(getIntent().getExtras().getString("medecin"));
 
-
-
         mButton09 = (Button) findViewById(R.id.activity_choisir_creneau_09);
         mButton10 = (Button) findViewById(R.id.activity_choisir_creneau_10);
         mButton11 = (Button) findViewById(R.id.activity_choisir_creneau_11);
@@ -78,6 +76,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton09.setEnabled(false);
 
         }else{
+            mButton09.setEnabled(true);
             mButton09.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,10,00);
@@ -85,6 +84,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton10.setBackgroundResource(R.drawable.red_button);
             mButton10.setEnabled(false);
         }else{
+            mButton10.setEnabled(true);
             mButton10.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
         cal.set(year,month,day,11,00);
@@ -92,6 +92,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton11.setBackgroundResource(R.drawable.red_button);
             mButton11.setEnabled(false);
         }else{
+            mButton11.setEnabled(true);
             mButton11.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,14,00);
@@ -99,6 +100,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton14.setBackgroundResource(R.drawable.red_button);
             mButton14.setEnabled(false);
         }else{
+            mButton14.setEnabled(true);
             mButton14.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,15,00);
@@ -106,6 +108,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton15.setBackgroundResource(R.drawable.red_button);
             mButton15.setEnabled(false);
         }else{
+            mButton15.setEnabled(true);
             mButton15.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,16,00);
@@ -113,6 +116,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton16.setBackgroundResource(R.drawable.red_button);
             mButton16.setEnabled(false);
         }else{
+            mButton16.setEnabled(true);
             mButton16.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,17,00);
@@ -120,6 +124,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             mButton17.setBackgroundResource(R.drawable.red_button);
             mButton17.setEnabled(false);
         }else{
+            mButton17.setEnabled(true);
             mButton17.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
 
@@ -216,7 +221,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         for(Disponibilite disponibilite:disponibilites){
 
             if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
-                Toast.makeText(getApplicationContext(), ""+disponibilite.getUtilisateur().getId(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), ""+disponibilite.getUtilisateur().getId(),Toast.LENGTH_LONG).show();
 
                 return disponibilite.getId();
             }

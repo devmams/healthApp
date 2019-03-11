@@ -71,6 +71,12 @@ public class HomePageActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
     @Override
     protected void onRestart() {
         super.onRestart();  // Always call the superclass method first
