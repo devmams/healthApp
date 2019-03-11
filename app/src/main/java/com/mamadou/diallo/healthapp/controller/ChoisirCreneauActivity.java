@@ -72,11 +72,11 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(medecin);
 
         if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
-            mButton09.setBackgroundResource(R.drawable.red_button);
-            mButton09.setEnabled(false);
+//            mButton09.setBackgroundResource(R.drawable.red_button);
+//            mButton09.setEnabled(false);
 
         }else{
-            mButton09.setEnabled(true);
+//            mButton09.setEnabled(true);
             mButton09.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,10,00);

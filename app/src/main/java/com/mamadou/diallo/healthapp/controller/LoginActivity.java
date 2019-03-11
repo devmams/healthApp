@@ -51,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "désolé, cet identifiant n'est pas dans la base ",Toast.LENGTH_LONG).show();
                 }
-                finish();
             }
         });
 

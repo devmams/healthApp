@@ -52,7 +52,6 @@ public class SignupActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
                     startActivity(intent);
                 }
-                finish();
 //                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
             }
         });

@@ -67,6 +67,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         mHoraireBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                medecinChoisi = spinner_2.getSelectedItem().toString();
                 Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
 //                Toast.makeText(getApplicationContext(), "med : " + medecinChoisi, Toast.LENGTH_SHORT).show();
                 intent.putExtra("medecin", medecinChoisi);
@@ -127,6 +128,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         spinner_2.setAdapter(adapter_2);
 //        Toast.makeText(this,""+ spinner_2.getSelectedItem(), Toast.LENGTH_SHORT).show();
         medecinChoisi= spinner_2.getSelectedItem().toString();
+        adapter_2.notifyDataSetChanged();
 
 
     }
