@@ -42,7 +42,9 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choisir_creneau);
-        medecin =Medecin.getMedecinIdByName(getIntent().getExtras().getString("medecin"));
+        medecin = Medecin.getMedecinIdByName(getIntent().getExtras().getString("medecin"));
+
+
 
         mButton09 = (Button) findViewById(R.id.activity_choisir_creneau_09);
         mButton10 = (Button) findViewById(R.id.activity_choisir_creneau_10);
@@ -69,56 +71,56 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
        // disponibiliteHelper.ajouterDisponibilite(date9,1);
 
-        List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(1);
+        List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(medecin);
 
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton09.setBackgroundResource(R.drawable.red_button);
-            mButton09.setEnabled(true);
+            mButton09.setEnabled(false);
 
         }else{
-            mButton09.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton09.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,10,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton10.setBackgroundResource(R.drawable.red_button);
             mButton10.setEnabled(false);
         }else{
             mButton10.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
         }
         cal.set(year,month,day,11,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton11.setBackgroundResource(R.drawable.red_button);
             mButton11.setEnabled(false);
         }else{
-            mButton11.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton11.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,14,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton14.setBackgroundResource(R.drawable.red_button);
             mButton14.setEnabled(false);
         }else{
-            mButton14.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton14.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,15,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton15.setBackgroundResource(R.drawable.red_button);
             mButton15.setEnabled(false);
         }else{
-            mButton15.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton15.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,16,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton16.setBackgroundResource(R.drawable.red_button);
             mButton16.setEnabled(false);
         }else{
-            mButton16.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton16.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
         cal.set(year,month,day,17,00);
-        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime())){
+        if(!verifierDisponibilite(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime())){
             mButton17.setBackgroundResource(R.drawable.red_button);
             mButton17.setEnabled(false);
         }else{
-            mButton17.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(1),cal.getTime()));
+            mButton17.setId(getDiponibiliteID(disponibiliteHelper.getMedecinDisponibilite(medecin),cal.getTime()));
         }
 
 

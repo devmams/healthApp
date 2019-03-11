@@ -32,7 +32,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     private List<String> listMedecinString=new ArrayList<String>();
     private List<Medecin> listMedecin=getAllMedecin();
     Spinner spinner_1,spinner_2;
-    String medecinChoisi = null;
+    String medecinChoisi = "";
 
     int ps;
 
@@ -57,6 +57,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
+                Toast.makeText(getApplicationContext(), "med : " + medecinChoisi, Toast.LENGTH_SHORT).show();
                 intent.putExtra("medecin", medecinChoisi);
                 startActivity(intent);
             }
