@@ -32,6 +32,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     private List<String> listMedecinString=new ArrayList<String>();
     private List<Medecin> listMedecin=getAllMedecin();
     Spinner spinner_1,spinner_2;
+    String medecinChoisi = null;
 
     int ps;
 
@@ -50,13 +51,13 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         spinner_1 = (Spinner) findViewById(R.id.spinner1);
         spinner_1.setOnItemSelectedListener(this);
         spinner_2 = (Spinner) findViewById(R.id.spinner2);
-
         mHoraireBtn = (Button) findViewById(R.id.activity_make_an_appointment_horaire_btn);
 
         mHoraireBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
+                intent.putExtra("medecin", medecinChoisi);
                 startActivity(intent);
             }
         });
@@ -73,6 +74,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
 
         // Apply the adapter to the spinner
         spinner_1.setAdapter(adapter_1);
+
 
 
     }
@@ -92,6 +94,10 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         adapter_2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter_2.notifyDataSetChanged();
         spinner_2.setAdapter(adapter_2);
+        Toast.makeText(this,""+ spinner_2.getSelectedItem(), Toast.LENGTH_SHORT).show();
+        medecinChoisi= spinner_2.getSelectedItem().toString();
+
+
     }
 
     @Override

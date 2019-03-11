@@ -71,10 +71,8 @@ public class ValidationRDVActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 disponibiliteHelper.prendreRendezVous(dispoId,LoginActivity.getUserConnecter().getId());
-                Toast.makeText(getApplicationContext(), ""+LoginActivity.getUserConnecter().getNom(),Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
+                Intent intent = new Intent(getApplicationContext(),MyAppointmentActivity.class);
                 startActivity(intent);
-
 
             }
         });

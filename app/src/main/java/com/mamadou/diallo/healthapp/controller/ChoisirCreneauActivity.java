@@ -36,11 +36,13 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
     private Button mButton15;
     private Button mButton16;
     private Button mButton17;
+    int medecin = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choisir_creneau);
+        medecin =Medecin.getMedecinIdByName(getIntent().getExtras().getString("medecin"));
 
         mButton09 = (Button) findViewById(R.id.activity_choisir_creneau_09);
         mButton10 = (Button) findViewById(R.id.activity_choisir_creneau_10);
@@ -50,7 +52,6 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         mButton16 = (Button) findViewById(R.id.activity_choisir_creneau_16);
         mButton17 = (Button) findViewById(R.id.activity_choisir_creneau_17);
         int  idBouton;
-        
         final int year = getIntent().getExtras().getInt("yearValue");
         final int month = (getIntent().getExtras().getInt("monthValue")+1);
         final int day = getIntent().getExtras().getInt("dayValue");
@@ -223,10 +224,17 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
     void valider(Date date,int idDisponibilite){
         Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
-        intent.putExtra("dateValue", date.getTime());
-        intent.putExtra("medecin", 1); // le 1 correspond à l'id du medecin
-        intent.putExtra("idDisponibilite", idDisponibilite);
-        startActivity(intent);
+
+        if(medecin==0){
+            Toast.makeText(this, "Vous n'avez pas selectionné de medecin", Toast.LENGTH_SHORT).show();
+
+        }else{
+            getIntent().getExtras().getString("medecin");
+            intent.putExtra("medecin", medecin); // le 1 correspond à l'id du medecin
+            intent.putExtra("idDisponibilite", idDisponibilite);
+            startActivity(intent);
+        }
+
     }
 
     @Override
