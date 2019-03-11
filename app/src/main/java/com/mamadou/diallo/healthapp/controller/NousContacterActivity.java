@@ -7,21 +7,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
-public class AboutActivity extends AppCompatActivity {
-    private Button mNousContacter;
+public class NousContacterActivity extends AppCompatActivity {
+    private Button mSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        mNousContacter = (Button) findViewById(R.id.activity_about_nouscontacter);
-        mNousContacter.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_nous_contacter);
+        mSend = (Button) findViewById(R.id.activity_nous_contacter_send);
+        mSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),NousContacterActivity.class);
+                Toast.makeText(getApplicationContext(),getResources().getString(R.string.messagesend),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),HomePageActivity.class);
                 startActivity(intent);
             }
         });

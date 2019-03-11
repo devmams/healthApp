@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
         ArrayAdapter<String> adapter_2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listMedecinString);
         adapter_2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //adapter_2.notifyDataSetChanged();
+        adapter_2.notifyDataSetChanged();
         spinner_2.setAdapter(adapter_2);
     }
 
