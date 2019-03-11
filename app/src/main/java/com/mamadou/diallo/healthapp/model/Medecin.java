@@ -89,6 +89,16 @@ public class Medecin {
 
     }
 
+    public static int getMedecinIdByName(String name){
+        for(Medecin medecin:medecins){
+            String med=medecin.getNomMedecin()+" "+medecin.getPrenomMedecin();
+            if(med.equals(name))
+                return medecin.getIdMedecin();
+        }
+        return 0;
+
+    }
+
 
 
 }

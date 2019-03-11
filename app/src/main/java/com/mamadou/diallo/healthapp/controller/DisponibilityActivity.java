@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
 
@@ -45,6 +46,7 @@ public class DisponibilityActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ChoisirCreneauActivity.class);
                 intent.putExtra("yearValue", strYear);
                 intent.putExtra("monthValue", strMonth);
+                intent.putExtra("medecin", getIntent().getExtras().getString("medecin"));
                 intent.putExtra("dayValue", strDay);
                 startActivity(intent);
             }
