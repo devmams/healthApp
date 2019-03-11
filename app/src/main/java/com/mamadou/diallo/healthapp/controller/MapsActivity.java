@@ -60,7 +60,7 @@ public class MapsActivity extends AppCompatActivity
 
         mMap.setOnMyLocationButtonClickListener(this);
         mMap.setOnMyLocationClickListener(this);
-        map.addMarker()
+//        map.addMarker()
         enableMyLocation();
     }
 
