@@ -14,13 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="127dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/logo_health_app" />
 
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/lobster"
         android:fontStyle="normal"
@@ -37,7 +37,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
         android:textAlignment="center"
-        android:dropDownSelector="@color/colorAccent"/>
+        android:dropDownSelector="@color/colorRose"/>
 
     <TextView
         android:layout_width="300dp"
@@ -58,7 +58,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
         android:textAlignment="center"
-        android:dropDownSelector="@color/colorAccent" />
+        android:dropDownSelector="@color/colorRose" />
 
 
     <EditText
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_border_button"
-        android:text="@string/schedule"
+        android:text="@string/schedule_v1"
         android:textColor="@color/white"
         android:fontFamily="@font/lobster"
         android:fontStyle="normal"
