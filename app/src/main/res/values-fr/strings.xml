@@ -30,4 +30,6 @@
     <string name="motif">Motif</string>
     <string name="choix_specialite">Choisissez la specialité</string>
     <string name="choix_medecin">Choisissez un medecin</string>
+    <string name="choix_langue">Choisissez votre langue</string>
+
 </resources>

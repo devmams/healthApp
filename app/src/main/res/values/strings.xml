@@ -32,5 +32,8 @@
     <string name="motif">Reason</string>
     <string name="choix_specialite">Choose a speciality</string>
     <string name="choix_medecin">Choose a doctor</string>
+    <string name="choix_langue">Choose your language</string>
+
+
 
 </resources>
