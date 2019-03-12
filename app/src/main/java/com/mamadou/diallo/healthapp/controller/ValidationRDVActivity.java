@@ -69,7 +69,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
         mSpecialiteTxt.setText(getResources().getString(R.string.speciality) + " : " + strSpecialite);
         mMotifTxt.setText(getResources().getString(R.string.reason) + " : "+ strMotif);
         mDateTxt.setText(getResources().getString(R.string.date) + " : " + strDate);
-        
+
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
