@@ -29,7 +29,7 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        
+
         mMakeAnAppointment = (Button) findViewById(R.id.activity_home_page_make_an_appointment_btn);
 
         mItineraire = (Button) findViewById(R.id.activity_home_page_itineraire_btn);

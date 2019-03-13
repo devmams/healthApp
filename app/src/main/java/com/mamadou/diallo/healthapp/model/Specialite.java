@@ -51,7 +51,7 @@ public class Specialite {
     }
 
     public  static Specialite getSpecialite( int idSpecialite){
-        //getAllSpecialite();
+        getAllSpecialite();
         for(Specialite specialite :  listeSpecialites){
 
             if(specialite.idSpecialite ==idSpecialite ){

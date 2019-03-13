@@ -79,10 +79,15 @@ public class Medecin {
 
 
     public static List<Medecin> getMedecinsBySpecialite(String libelleSpecialite){
+        getAllMedecin();
+
         List<Medecin> newList=new ArrayList<>();
-        for(Medecin medecin :  medecins)
-            if(medecin.getSpecialiteMedecin().getLibelleSpecialite().equals(libelleSpecialite))
-                newList.add(medecin);
+        for(Medecin medecin :  medecins){
+            if(medecin!=null){
+                if(medecin.getSpecialiteMedecin().getLibelleSpecialite().equals(libelleSpecialite))
+                    newList.add(medecin);
+            }
+        }
 
         return newList;
 

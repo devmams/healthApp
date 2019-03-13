@@ -90,41 +90,6 @@ public void initialize(){
 
 
 
-   /* while (day<30){
-        for( hour=9;hour<=12;hour++){
-            cal.set(year,month,day,hour,00);
-            for(Medecin medecin:Medecin.getAllMedecin()){
-                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
-            }
-        }
-        for( hour=14;hour<=17;hour++){
-            cal.set(year,month,day,hour,00);
-            for(Medecin medecin:Medecin.getAllMedecin()){
-                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
-            }
-        }
-        day++;
-    }
-
-    month++;
-    day =1;
-    while (day<30){
-        for( hour=9;hour<=12;hour++){
-            cal.set(year,month,day,hour,00);
-            for(Medecin medecin:Medecin.getAllMedecin()){
-                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
-            }
-        }
-        for( hour=14;hour<=17;hour++){
-            cal.set(year,month,day,hour,00);
-            for(Medecin medecin:Medecin.getAllMedecin()){
-                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
-            }
-        }
-        day++;
-    }
-
-*/
 }
 
     public boolean prendreRendezVous( int disponibilite, int utilisateur){

@@ -69,18 +69,16 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
             public void onClick(View v) {
                 medecinChoisi = spinner_2.getSelectedItem().toString();
                 Intent intent = new Intent(getApplicationContext(), DisponibilityActivity.class);
-//                Toast.makeText(getApplicationContext(), "med : " + medecinChoisi, Toast.LENGTH_SHORT).show();
                 intent.putExtra("medecin", medecinChoisi);
                 startActivity(intent);
             }
         });
 
 
-        Toast.makeText(getApplicationContext(), "med1 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "med1 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
 
-//        listSpecialiteString.clear();
 
-        Toast.makeText(getApplicationContext(), "med2 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "med2 : " + listSpecialiteString.size(), Toast.LENGTH_SHORT).show();
 
 
         HashSet<String> hashSet = new HashSet<String>();
@@ -108,7 +106,6 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String sp1= String.valueOf(spinner_1.getSelectedItem());
-        Toast.makeText(this, sp1, Toast.LENGTH_SHORT).show();
         listMedecin = Medecin.getMedecinsBySpecialite(sp1);
         listMedecinString.clear();
         for(int i=0;i<listMedecin.size();i++){

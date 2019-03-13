@@ -29,7 +29,6 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
         mFirstNameTxt = (EditText) findViewById(R.id.activity_signup_first_name_txt);
         mLastNameTxt = (EditText) findViewById(R.id.activity_signup_last_name_txt);
         mEmailTxt = (EditText) findViewById(R.id.activity_signup_email_txt);
@@ -56,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 //userbd.addUtilisateur(user);
                 if(user != null){
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 }
 //                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();

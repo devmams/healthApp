@@ -67,6 +67,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
         DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
+
        // disponibiliteHelper.ajouterDisponibilite(date9,1);
 
         List<Disponibilite>  disponibilites =disponibiliteHelper.getMedecinDisponibilite(medecin);
@@ -220,7 +221,6 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
         for(Disponibilite disponibilite:disponibilites){
 
             if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
-//                Toast.makeText(getApplicationContext(), ""+disponibilite.getUtilisateur().getId(),Toast.LENGTH_LONG).show();
 
                 return disponibilite.getId();
             }
