@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.NousContacterActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/backg">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="127dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo_health_app"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:ems="10"
+        android:background="@drawable/rounded_border_edittext"
+        android:hint="@string/message"
+        android:id="@+id/activity_login_password_txt"/>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send"
+        android:ems="10"
+        android:background="@drawable/rounded_border_button"
+        android:fontStyle="normal"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:id="@+id/activity_nous_contacter_send"/>
+
+</LinearLayout>

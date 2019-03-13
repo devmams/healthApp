@@ -1,11 +1,14 @@
 package com.mamadou.diallo.healthapp.controller;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +28,14 @@ public class MyAppointmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_appointment);
         setupRecyclerView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void setupRecyclerView() {
@@ -47,5 +58,26 @@ public class MyAppointmentActivity extends AppCompatActivity {
         recreate();
     }
 
+    private void language_setting(){
+        Intent intent = new Intent(getApplicationContext(),SettingLanguageActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //ajoute les entrées de menu_test à l'ActionBar
+        getMenuInflater().inflate(R.menu.menu_app, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_language:
+                language_setting();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
 

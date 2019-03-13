@@ -44,6 +44,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
 
 
 
+
         Long date = getIntent().getExtras().getLong("dateValue");
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -52,9 +53,12 @@ public class ValidationRDVActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
 
         Medecin medecin = Medecin.getMedecin(getIntent().getExtras().getInt("medecin"));
-        final int  dispoId =getIntent().getExtras().getInt("idDisponibilite");
+        final int  dispoId = getIntent().getExtras().getInt("idDisponibilite");
         final Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
         intent.putExtra("dateValue", date);
+
+        Toast.makeText(this, "" + medecin.getIdMedecin(), Toast.LENGTH_SHORT).show();
+
 
         String strMedecin = medecin.getPrenomMedecin()+" "+medecin.getNomMedecin();
         String strSpecialite = medecin.getSpecialiteMedecin().getLibelleSpecialite();
@@ -73,7 +77,7 @@ public class ValidationRDVActivity extends AppCompatActivity {
                 disponibiliteHelper.prendreRendezVous(dispoId,LoginActivity.getUserConnecter().getId());
                 Intent intent = new Intent(getApplicationContext(),MyAppointmentActivity.class);
                 startActivity(intent);
-
+                finish();
             }
         });
 

@@ -85,6 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         long d = item.getDate().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String strDate = dateFormat.format(d);
+        holder.mMotif.setText("Pas precisé");
         holder.mDate.setText(strDate);
     }
 

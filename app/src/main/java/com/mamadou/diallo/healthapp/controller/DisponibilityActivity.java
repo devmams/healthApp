@@ -37,6 +37,10 @@ public class DisponibilityActivity extends AppCompatActivity {
         Long max = calendar.getTime().getTime();
         simpleCalendarView.setMaxDate(max);
 
+        Toast.makeText(getApplicationContext(), "med : " + getIntent().getExtras().getString("medecin"), Toast.LENGTH_SHORT).show();
+
+
+
         Long date = simpleCalendarView.getDate();
         simpleCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
