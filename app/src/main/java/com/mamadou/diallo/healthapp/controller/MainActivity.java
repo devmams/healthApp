@@ -1,15 +1,16 @@
 package com.mamadou.diallo.healthapp.controller;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.mamadou.diallo.healthapp.R;
+
+import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*
         mLogInBtn = (Button) findViewById(R.id.activity_main_login_btn);
         mSignUpBtn = (Button) findViewById(R.id.activity_main_signup_btn);
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -39,8 +41,21 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
+
+
+    /*
+    public void Default(View view) {
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+    }*/
+
+    public void lefttoright(View view) {
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        customType(MainActivity.this,"@string/login");
+    }
+
+
 
     @Override
     public void onBackPressed() {
