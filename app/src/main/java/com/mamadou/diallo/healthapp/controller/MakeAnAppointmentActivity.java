@@ -82,7 +82,7 @@ public class MakeAnAppointmentActivity extends AppCompatActivity implements Adap
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String sp1= String.valueOf(spinner_1.getSelectedItem());
-        //Toast.makeText(this, sp1, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, sp1, Toast.LENGTH_SHORT).show();
         listMedecin = Medecin.getMedecinsBySpecialite(sp1);
         listMedecinString.clear();
         for(int i=0;i<listMedecin.size();i++){

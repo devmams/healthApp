@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
 import com.mamadou.diallo.healthapp.model.Utilisateur;
 import com.mamadou.diallo.healthapp.model.UtilisateurHelper;
 
@@ -42,6 +43,12 @@ public class SignupActivity extends AppCompatActivity {
 
                 //UtilisateurHelper userbd = new UtilisateurHelper(getApplicationContext());
                 user = new Utilisateur(mLastNameTxt.getText().toString(), mFirstNameTxt.getText().toString(), mEmailTxt.getText().toString(), mPasswordTxt.getText().toString());
+                if(Utilisateur.getAllUser(getApplicationContext()).size()==0){
+                    DisponibiliteHelper disponibiliteHelper = new DisponibiliteHelper(getApplicationContext());
+                    disponibiliteHelper.initialize();
+
+                }
+
                 if(user.add(getApplicationContext())){
                     Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();
                 }else{
@@ -49,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 //userbd.addUtilisateur(user);
                 if(user != null){
-                    Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
 //                Toast.makeText(getApplicationContext(), "Bonjour Monsieur "+user.getNom()+" "+user.getPrenom(),Toast.LENGTH_LONG).show();

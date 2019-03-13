@@ -114,20 +114,5 @@ public class ValidationRDVActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
-
-    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
-    //disponibiliteHelper.ajouterDisponibilite(new Date(),1);
-    //disponibiliteHelper.ajouterDisponibilite(new Date(),3);
-
-    //disponibiliteHelper.prendreRendezVous(1,1); ici le second parametre correspond à l'identifiant de l'utilisateur connecté
-
-    // Toast.makeText(getApplicationContext(), ""+disponibiliteHelper.getAllDisponibilite().get(0).getUtilisateur().getId(),Toast.LENGTH_LONG).show();
-
-
-    //for(Disponibilite disponibilite :disponibiliteHelper.getNextUserDisponibilite(1)) pour avoir la liste des prochains rdv de l'utilisateur
-
-
-    // for(Disponibilite disponibilite :disponibiliteHelper.getPreviousUserDisponibilite(1)) pour avoir la liste des precedent rdv de l'utilisateur
 
 }

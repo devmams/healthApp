@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -58,7 +59,73 @@ public class DisponibiliteHelper  extends SQLiteOpenHelper {
     }
 
 
+public void initialize(){
+    SQLiteDatabase db = this.getWritableDatabase();
+    onCreate(db);
 
+    java.util.Date date= new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    int month = cal.get(Calendar.MONTH)+1;
+    int year = cal.get(Calendar.YEAR);
+    //int day = cal.get(Calendar.DATE);
+    int hour = 0;
+
+        for(int day =cal.get(Calendar.DATE);day<=20;day++){
+            for( hour=9;hour<=12;hour++){
+                cal.set(year,month,day,hour,00);
+                for(Medecin medecin:Medecin.getAllMedecin()){
+                    ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+                }
+            }
+            for( hour=14;hour<=17;hour++){
+                cal.set(year,month,day,hour,00);
+                for(Medecin medecin:Medecin.getAllMedecin()){
+                    ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+                }
+            }
+
+        }
+
+
+
+
+   /* while (day<30){
+        for( hour=9;hour<=12;hour++){
+            cal.set(year,month,day,hour,00);
+            for(Medecin medecin:Medecin.getAllMedecin()){
+                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+            }
+        }
+        for( hour=14;hour<=17;hour++){
+            cal.set(year,month,day,hour,00);
+            for(Medecin medecin:Medecin.getAllMedecin()){
+                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+            }
+        }
+        day++;
+    }
+
+    month++;
+    day =1;
+    while (day<30){
+        for( hour=9;hour<=12;hour++){
+            cal.set(year,month,day,hour,00);
+            for(Medecin medecin:Medecin.getAllMedecin()){
+                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+            }
+        }
+        for( hour=14;hour<=17;hour++){
+            cal.set(year,month,day,hour,00);
+            for(Medecin medecin:Medecin.getAllMedecin()){
+                ajouterDisponibilite(cal.getTime(),medecin.getIdMedecin());
+            }
+        }
+        day++;
+    }
+
+*/
+}
 
     public boolean prendreRendezVous( int disponibilite, int utilisateur){
         SQLiteDatabase db = this.getWritableDatabase();

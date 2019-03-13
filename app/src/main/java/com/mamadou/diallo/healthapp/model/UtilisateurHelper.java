@@ -55,6 +55,8 @@ public class UtilisateurHelper extends SQLiteOpenHelper {
         if( getUser(utilisateur.getAdresseMail(), utilisateur.getPassword()) !=null)
             return false;
 
+
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues content = new ContentValues();
         //content.put(KEY_ID,utilisateur.getId() );

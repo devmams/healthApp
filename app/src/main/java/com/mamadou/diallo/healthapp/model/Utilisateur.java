@@ -49,7 +49,7 @@ public class Utilisateur extends AppCompatActivity implements Serializable {
      *
      * @return la liste de tous les  utilisateurs
      */
-    public List<Utilisateur>getAllUser(Context context){
+    public static List<Utilisateur>getAllUser(Context context){
         UtilisateurHelper userHelper= new UtilisateurHelper(context);
         return  userHelper.getAllUser();
     }

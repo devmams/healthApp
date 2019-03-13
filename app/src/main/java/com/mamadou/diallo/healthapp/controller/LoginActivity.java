@@ -3,6 +3,7 @@ package com.mamadou.diallo.healthapp.controller;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,9 +14,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mamadou.diallo.healthapp.R;
+import com.mamadou.diallo.healthapp.model.DisponibiliteHelper;
 import com.mamadou.diallo.healthapp.model.Specialite;
 import com.mamadou.diallo.healthapp.model.Utilisateur;
 import com.mamadou.diallo.healthapp.model.UtilisateurHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_login);
 
         mEmailTxt = (EditText) findViewById(R.id.activity_login_email_txt);
@@ -40,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         mLogInLogInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // user = null;
+
                 user=new Utilisateur(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
                 user=user.login(getApplicationContext());
                 if(user!=null){
