@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
+
         mLogInBtn = (Button) findViewById(R.id.activity_main_login_btn);
         mSignUpBtn = (Button) findViewById(R.id.activity_main_signup_btn);
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 
 

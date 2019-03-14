@@ -58,6 +58,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
         Calendar cal = Calendar.getInstance();
 
+
         cal.set(year,month,day,9,00);
 
         Date date9 = cal.getTime();
@@ -196,6 +197,7 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
                 Calendar cal = Calendar.getInstance();
                 cal.set(year,month,day,17,00);
                 Date date = cal.getTime();
+
                 valider(date,mButton17.getId());
 
             }
@@ -206,6 +208,9 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
 
     boolean verifierDisponibilite(List<Disponibilite> disponibilites, Date date){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        //Date date1 = new Date();
+       // Toast.makeText(this, "Date "+disponibilites.get(0).getDate(), Toast.LENGTH_SHORT).show();
+
         for(Disponibilite disponibilite:disponibilites){
 
             if( dateFormat.format(disponibilite.getDate()).equals(dateFormat.format(date.getTime())) ){
@@ -238,6 +243,8 @@ public class ChoisirCreneauActivity extends AppCompatActivity {
             getIntent().getExtras().getString("medecin");
             intent.putExtra("medecin", medecin); // le 1 correspond à l'id du medecin
             intent.putExtra("idDisponibilite", idDisponibilite);
+            intent.putExtra("dateValue", date.getTime());
+
             startActivity(intent);
         }
 

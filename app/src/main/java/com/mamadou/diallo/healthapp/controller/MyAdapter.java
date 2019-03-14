@@ -25,6 +25,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -81,8 +82,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Disponibilite item = list.get(position);
         holder.mMedecin.setText(item.getMedecin().getNomMedecin()+ " " +item.getMedecin().getPrenomMedecin());
-        holder.mSpecialite.setText("ma specialité");
-        long d = item.getDate().getTime();
+        //holder.mSpecialite.setText("ma specialité");
+        holder.mSpecialite.setText(item.getMedecin().getSpecialiteMedecin().getLibelleSpecialite());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(item.getDate());
+        cal.add(Calendar.MONTH,-1);
+
+        long d = cal.getTime().getTime();
+
+
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String strDate = dateFormat.format(d);
         holder.mMotif.setText("Pas precisé");

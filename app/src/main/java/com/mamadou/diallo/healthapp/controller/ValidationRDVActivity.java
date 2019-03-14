@@ -20,6 +20,7 @@ import com.mamadou.diallo.healthapp.model.Medecin;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class ValidationRDVActivity extends AppCompatActivity {
@@ -46,23 +47,28 @@ public class ValidationRDVActivity extends AppCompatActivity {
 
 
         Long date = getIntent().getExtras().getLong("dateValue");
-
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date((date)));
+        cal.add(Calendar.MONTH,-1);
+        date=cal.getTime().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+
         final DisponibiliteHelper disponibiliteHelper= new DisponibiliteHelper(this.getApplicationContext());
 
         Intent intent = new Intent(getApplicationContext(), ValidationRDVActivity.class);
 
         Medecin medecin = Medecin.getMedecin(getIntent().getExtras().getInt("medecin"));
         final int  dispoId = getIntent().getExtras().getInt("idDisponibilite");
-        final Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
+        //final Date dateDisponibilite = new Date(getIntent().getExtras().getLong("dateValue"));
         intent.putExtra("dateValue", date);
 
-        Toast.makeText(this, "" + medecin.getIdMedecin(), Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(this, "" + medecin.getIdMedecin(), Toast.LENGTH_SHORT).show();
 
 
         String strMedecin = medecin.getPrenomMedecin()+" "+medecin.getNomMedecin();
         String strSpecialite = medecin.getSpecialiteMedecin().getLibelleSpecialite();
-        String strMotif = "Mal de coeur";
+        String strMotif = "Pas précisé";
         String strDate = dateFormat.format(date);
 
         mMedecinTxt.setText(getResources().getString(R.string.doctor) + " : " + strMedecin);
