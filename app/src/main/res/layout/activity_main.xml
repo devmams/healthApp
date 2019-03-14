@@ -28,8 +28,7 @@
         android:background="@drawable/rounded_border_button"
         android:text="@string/login"
         android:textColor="@color/white"
-        android:id="@+id/activity_main_login_btn"
-        android:onClick="lefttoright"/>
+        android:id="@+id/activity_main_login_btn"/>
 
     <Button
         android:layout_width="wrap_content"
