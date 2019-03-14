@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import com.mamadou.diallo.healthapp.R;
 
-import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
 
@@ -52,10 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void lefttoright(View view) {
         startActivity(new Intent(MainActivity.this,LoginActivity.class));
-        customType(MainActivity.this,"@string/login");
+        //customType(MainActivity.this,"@string/login");
+
     }
-
-
 
     @Override
     public void onBackPressed() {
