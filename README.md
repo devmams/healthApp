@@ -1,3 +1,3 @@
 # healthApp
 
-HealthApp is an application which allow a user to take an appointment with his doctor.
+HealthApp is an application which allow to take an appointment with his doctor.
